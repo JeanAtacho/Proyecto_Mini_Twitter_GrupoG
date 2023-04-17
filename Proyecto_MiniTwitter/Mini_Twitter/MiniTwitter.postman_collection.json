@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "60c5d7fa-4b02-4d0c-aa4a-be64cea86311",
+		"name": "MiniTwitter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "255243"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"berto@hackaboss.com\",\n    \"password\": \"loremipsum\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/user",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/user/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Tweets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/user/1/tweets",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"user",
+								"1",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/user/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"berto@hackaboss.com\",\n    \"password\": \"loremipsum\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/login",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tweets",
+			"item": [
+				{
+					"name": "New Tweet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUzNDkzMTEzLCJleHAiOjE2NTYwODUxMTN9.z4bIwYOKy9ywnZM1_NQtqj8xS4tn-R-_3frfcm7my74",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "This is lula!!",
+									"type": "default"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/berto/Downloads/lula.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}",
+							"host": [
+								"{{HOST}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tweets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}",
+							"host": [
+								"{{HOST}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Tweet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/tweet/12",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"tweet",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tweet",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUwNDg5MDEwLCJleHAiOjE2NTMwODEwMTB9.IyGKx2xQ1_jsyR_7MhSMhbld2Skk2ySbMeXYLOj0VVU",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/tweet/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"tweet",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "https://minitwitter.backends.hackaboss.com"
+		}
+	]
+}
