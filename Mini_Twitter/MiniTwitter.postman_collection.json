@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "60c5d7fa-4b02-4d0c-aa4a-be64cea86311",
+		"_postman_id": "252334f5-2ab8-43f2-a806-c5329cae11c8",
 		"name": "MiniTwitter",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "255243"
+		"_exporter_id": "3145194"
 	},
 	"item": [
 		{
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"berto@hackaboss.com\",\n    \"password\": \"loremipsum\"\n}",
+							"raw": "{\n    \"email\": \"user@hackaboss.com\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -79,7 +79,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "",
+								"value": "{{TOKEN}}",
 								"type": "default"
 							}
 						],
@@ -98,12 +98,24 @@
 				},
 				{
 					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.globals.set(\"TOKEN\", jsonData.data);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\":\"berto@hackaboss.com\",\n    \"password\": \"loremipsum\"\n}",
+							"raw": "{\n    \"email\": \"user@hackaboss.com\",\n    \"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -134,7 +146,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUzNDkzMTEzLCJleHAiOjE2NTYwODUxMTN9.z4bIwYOKy9ywnZM1_NQtqj8xS4tn-R-_3frfcm7my74",
+								"value": "{{TOKEN}}",
 								"type": "default"
 							}
 						],
