@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+    --Color-azulMorado: #515BD4;
+    --Color-azulTwitter: #52C3F5;
+    --Color-purpleBlue: #7606C2;
+    --Color-hoverBotones: #283747;
+    --Color-negro: #000000;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    background-image: linear-gradient(45deg, var(--Color-purpleBlue), var(--Color-azulMorado), var(--Color-azulTwitter));
+}
+
+span {
+    color: var(--Color-azulMorado);
+}
+.signupFrm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+  .form {
+    background-color: white;
+    width: 400px;
+    height: 550px;
+    border-radius: 10px;
+    padding: 10px 40px;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+  }
+  
+  .slogan {
+    font-family: Iceland;
+    font-size: 25px;
+    color: var(--Color-azulTwitter);
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+  .inputContainer {
+    position: relative;
+    height: 45px;
+    width: 90%;
+    margin-bottom: 17px;
+  }
+
+  .input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--Color-azulMorado);
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 0 20px;
+    outline: none;
+    background: none;
+    z-index: 1;
+  }
+  
+  /* Hide the placeholder texts (a) */
+  
+  ::placeholder {
+    color: transparent;
+  }
+  .label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 0 4px;
+    background-color: white;
+    color: var(--Color-azulMorado);
+    font-size: 16px;
+    transition: 0.5s;
+    z-index: 0;
+}
+
+.btnTitle {
+    font-size: 12px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.submitBtn {
+    display: block;
+    margin: auto;
+    padding: 10px 30px;
+    border: none;
+    background-color: var(--Color-azulMorado);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitBtn:hover {
+    background-color: var(--Color-azulTwitter);
+    transform: translateY(-2px);
+}
+.input:focus + .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--Color-azulTwitter);
+}
