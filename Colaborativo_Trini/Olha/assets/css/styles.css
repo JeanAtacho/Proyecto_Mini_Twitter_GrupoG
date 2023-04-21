@@ -64,6 +64,7 @@ body {
   height: 26px;
   margin-right: 20px;
 }
+
 .menu__btn {
   margin-top: 40px;
   padding: 15px 70px;
@@ -74,7 +75,7 @@ body {
   background: #515BD4;
   transition: .3s linear;
   cursor: pointer;
-  font-size:1vw;
+  font-size: 1vw;
 }
 
 .menu__btn:hover {
@@ -84,9 +85,9 @@ body {
 .usuario {
   padding-top: 40px;
 }
+
 .return {
   height: 40px;
-  background-color: gray;
 }
 
 .return__content {
@@ -95,14 +96,15 @@ body {
 }
 
 .return__link-img {
-  width: 4%;
+  width: 5%;
+  padding-right: 10px;
 }
 
 .return__link {
   margin-left: 5px;
   text-decoration: none;
   color: #52C3F5;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 900;
   display: flex;
   align-items: center;
@@ -154,11 +156,13 @@ body {
   text-align: center;
   padding-top: 15px;
 }
-.mis_trinit{
+
+.mis_trinit {
   text-align: center;
   color: #52C3F5;
   position: relative;
 }
+
 .mis_trinit::after {
   content: "";
   position: absolute;
@@ -171,6 +175,7 @@ body {
   margin: 0 auto;
   display: block;
 }
+
 .trini {
   display: flex;
   border-bottom: 1px solid #e6ecf0;
@@ -210,11 +215,13 @@ body {
   margin-left: 5px;
   color: #808080;
 }
-.trini_punto{
-height: 50px;
-margin-left: auto;
+
+.trini_punto {
+  height: 50px;
+  margin-left: auto;
 }
-.trini_punto img{
+
+.trini_punto img {
   height: 40px;
 }
 
@@ -223,11 +230,12 @@ margin-left: auto;
   border-radius: 15px;
   margin-top: 10px;
 }
-.heart_trinit{
+
+.heart_trinit {
   text-align: center;
   position: relative;
 }
-.heart .heart-active{
-  color: #F90202
-  ;
+
+.heart .heart-active {
+  color: #F90202;
 }
