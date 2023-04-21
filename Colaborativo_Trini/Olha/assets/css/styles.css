@@ -85,14 +85,17 @@ body {
 .usuario {
   padding-top: 40px;
 }
-
+.layout__main{
+  border-left: 2px solid #D9D9D9;
+  border-right: 2px solid #D9D9D9;
+}
 .return {
   height: 40px;
 }
 
 .return__content {
   padding-left: 20px;
-  padding-top: 5px;
+  padding-top: 2px;
 }
 
 .return__link-img {
