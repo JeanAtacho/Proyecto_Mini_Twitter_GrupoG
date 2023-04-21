@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+    --Color-azulMorado: #515BD4;
+    --Color-azulTwitter: #52C3F5;
+    --Color-purpleBlue: #7606C2;
+    --Color-hoverBotones: #283747;
+    --Color-negro: #000000;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+span {
+    color: var(--Color-azulMorado);
+}
+hr {
+    margin-top: 30px;
+    width: 75%;
+    border: none;
+    border-color: white;
+    ;
+}
+.allForms {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(45deg, var(--Color-purpleBlue), var(--Color-azulMorado), var(--Color-azulTwitter));
+}
+.form {
+    background-color: white;
+    width: 400px;
+    height: 550px;
+    border-radius: 10px;
+    padding: 10px 40px;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
+.logo_trini {
+    position: absolute;
+    height: 100px;
+    left: 50%;
+    top: 12%;
+    transform: translate(-50%, -50%);
+}
+.slogan {
+    font-family: 'Iceland', cursive;
+    font-size: 25px;
+    color: var(--Color-azulTwitter);
+    margin-top: 85px;
+    margin-bottom: 20px;
+}
+.bienvenido {
+    font-family: 'Iceland', cursive;
+    font-size: 25px;
+    color: var(--Color-azulTwitter);
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+.inputContainer {
+    position: relative;
+    height: 45px;
+    width: 90%;
+    margin-bottom: 15px;
+}
+.input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--Color-azulMorado);
+    border-radius: 7px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 0 14px;
+    outline: none;
+    background: none;
+    z-index: 1;
+}
+::placeholder {
+    color: transparent;
+}
+.label {
+    position: absolute;
+    left: 10px;
+    padding: 0 5px;
+    background-color: white;
+    color: var(--Color-azulMorado);
+    font-family: 'Inter', sans-serif;
+    pointer-events: none;
+    font-size: 14px;
+    transform: translateY(-50%);
+    transition: 0.6s;
+    z-index: 1;
+}
+.input:focus + .label {
+    top: -1px;
+    padding: 0 5px;
+    z-index: 3;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--Color-purpleBlue);
+}
+.btnTitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.submitBtn {
+    display: block;
+    margin: auto;
+    padding: 5px 50px;
+    border: none;
+    background-color: var(--Color-azulMorado);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+}
+.submitBtn:hover {
+    background-color: var(--Color-azulTwitter);
+    transform: translateY(-2px);
+}
+.creditsTrini {
+    position: absolute;
+    height: 100px;
+    left: 10%;
+    top: 96%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+}
+.logoTriniBlanco {
+    position: absolute;
+    height: 100px;
+    left: 3.5%;
+    top: 84%;
+    transform: translate(-50%, -50%);
+    color: white;
+    height: 50px;
+}
+
+
+
+.politica {
+    font-family: 'Inter', sans-serif;
+    font-size: 5px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.checkbox {
+    transform: scale(0.5);
+    margin: 0;
+    padding: 0;
+}
