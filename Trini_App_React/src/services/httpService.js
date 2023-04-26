@@ -24,10 +24,10 @@ async function httpService({ url, method = 'GET', token = null, body = null }) {
     const response = await fetch(fullURL.href, config)
     const data = await response.json()
 
-    return { data, loading: false, error: data.error || null }
+    return { data, loading: false, url, error: data.error || null }
 
   } catch (error) {
-    return { data: null, loading: false, error }
+    return { data: null, url, loading: false, error }
   }
 }
 

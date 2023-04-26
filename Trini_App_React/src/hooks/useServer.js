@@ -5,9 +5,13 @@ import useAuth from './useAuth.js'
 function useServer() {
   const { token, setUser } = useAuth()
 
-  const handleResponse = ({ data, loading, error }) => {
-    if (data?.status && data?.data) {
-      setUser({...data})
+  const handleResponse = ({ data, loading, error, url }) => {
+    if (data?.status === 'ok' && url === '/login') {
+      setUser({token: data.data})
+    }
+
+    if (data?.data?.email && url === '/login') {
+      setUser({ user: data.data })
     }
 
     if (error && error.status === "error") {
@@ -22,7 +26,7 @@ function useServer() {
   }
   
   return {
-    get: ({ url }) => httpService({ method: 'GET', url, token }),
+    get: ({ url }) => httpService({ method: 'GET', url, token }).then(handleResponse),
     post: ({ url, body }) => httpService({ method: 'POST', url, token, body }).then(handleResponse),
     put: ({ url, body }) => httpService({ method: 'PUT', url, token, body }).then(handleResponse),
     delete: ({ url }) => httpService({ method: 'DELETE', url, token })

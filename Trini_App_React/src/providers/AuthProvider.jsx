@@ -9,8 +9,13 @@ const AuthProvider = ({ children }) => {
   const setUserHandler = (user = {}) => {
     if (isEmpty(user)) return
 
-    localStorage.setItem('user', JSON.stringify(user))
-    setCurrentUser(user)
+    const newUser = {
+      ...currentUser,
+      ...user
+    }
+
+    localStorage.setItem('user', JSON.stringify(newUser))
+    setCurrentUser(newUser)
   }
 
   const logoutHandler = () => {
@@ -21,8 +26,8 @@ const AuthProvider = ({ children }) => {
   const authValues = useMemo(() => {
     return {
       user: currentUser?.user || null,
-      token: currentUser?.accessToken,
-      isAuthenticated: !!currentUser?.user?.id,
+      token: currentUser?.token,
+      isAuthenticated: !!currentUser?.token,
       setUser: setUserHandler,
       logout: logoutHandler
     }
