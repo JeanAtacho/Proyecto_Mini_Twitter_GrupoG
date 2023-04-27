@@ -20,7 +20,7 @@ function Home() {
               delectus? Iste in nulla, exercitationem aspernatur aliquid repellendus delectus quae dicta.
               Dolor fugit obcaecati error impedit iste esse, odio nisi corporis.</p>
             <figure className="trino_image">
-              <img src="./assets/images/imagenTrinoEjemplo.jpg" alt="" />
+              <img src="src/image/imagenTrinoEjemplo.jpg" alt="" />
             </figure>
             <div className="trini-icons">
               <img src="./assets/images/heart.svg" alt="heart" className="trini-heart" />
@@ -48,7 +48,7 @@ function Home() {
               <img src="./assets/images/imagenTrinoEjemplo.jpg" alt="" />
             </figure>
             <div className="trini-icons">
-              <a href="!#"><img src="./assets/images/heart.svg" alt="heart" className="trini-heart" /></a>
+              <Link to="!#"><img src="./assets/images/heart.svg" alt="heart" className="trini-heart" /></Link>
             </div>
           </div>
         </article>
@@ -73,7 +73,7 @@ function Home() {
               <img src="./assets/images/imagenTrinoEjemplo.jpg" alt="" />
             </figure>
             <div className="trini-icons">
-              <a href="!#"><img src="./assets/images/heart.svg" alt="heart" className="trini-heart" /></a>
+              <Link to="!#"><img src="./assets/images/heart.svg" alt="heart" className="trini-heart" /></Link>
             </div>
           </div>
         </article>

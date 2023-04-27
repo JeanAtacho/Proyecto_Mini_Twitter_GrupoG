@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import useServer from '../hooks/useServer.js'
-import Creditos from '../components/creditos.jsx'
 
 function Login() {
   const { post, get } = useServer()
@@ -11,13 +10,12 @@ function Login() {
 
     const credentials = Object.fromEntries(new FormData(e.target))
     const { data } = await post({ url: '/login', body: credentials })
-    const usr = data && await get({ url: '/user/' })
-    console.log({ user: usr })
-    if (usr) return navigate('/')
+    console.log(credentials)
+    if (data) return navigate('/home')
   }
 
   return (
-      <main className="allForms">
+      <div main className="allForms">
         <form onSubmit={handleSubmit} className="form">
             <img className="logo_trini" src="./assets/Images/Logo_Trini_redi.png" alt="Logo_Trini" />
 
@@ -44,7 +42,7 @@ function Login() {
 
         <img className="logoTriniBlanco" src="./assets/Images/Logo_Trini_Blanco.png" alt="Logo_trini_blanco" />
 
-    </main>
+    </div>
   )
 }
 
