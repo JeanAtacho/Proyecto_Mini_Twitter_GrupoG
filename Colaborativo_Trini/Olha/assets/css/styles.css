@@ -1,0 +1,349 @@
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Iceland', cursive;
+  font-family: 'Inter', sans-serif
+}
+
+a {
+  text-decoration: none;
+  color: #515BD4;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 10px 9%;
+  width: 30%;
+  height: 100%;
+  position: fixed;
+}
+
+.brand {
+  width: 80%;
+  display: block;
+  margin: auto;
+  padding-bottom: 25%;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.nav-link-href {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+  width: fit-content;
+  padding: 8px 25px 8px 8px;
+
+}
+
+.nav-link-href:hover {
+  background-color: #52C3F5;
+  border-radius: 9999px;
+
+}
+
+.nav-link-icon {
+  height: 50%;
+  margin-right: 20px;
+}
+
+.trini__btn {
+  background-color: #515BD4;
+  width: 90%;
+  height: 55px;
+  border-radius: 9999px;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 1.7rem;
+  color: white;
+  font-weight: 700;
+  transition-duration: 0.3s;
+}
+
+.trini__btn:hover {
+  background-color: rgba(29, 155, 240, 0.9);
+}
+
+.main-account {
+  width: 50%;
+  position: absolute;
+  bottom: 0px;
+}
+
+.creditsTrini {
+  color: #52C3F5;
+}
+
+.logoTriniBlanco {
+  width: 25%;
+  display: block;
+  margin: auto;
+  padding-top: 40%;
+}
+
+h3 {
+  color: #515BD4;
+}
+
+
+main {
+  width: 70%;
+  height: 100%;
+  margin-left: 35%;
+  padding: 0 10% 10px 0;
+}
+
+.main-feed {
+  width: 100%;
+  border-left: 2px solid #D9D9D9;
+  border-right: 2px solid #D9D9D9;
+}
+
+.new-trin {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 250px;
+  padding: 16px 16px;
+  position: sticky;
+  top: 0;
+  border-bottom: 2px solid #D9D9D9;
+  background-color: white;
+}
+
+.new-trin a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 8px 15px;
+  margin-left: 10px;
+}
+
+.account-details {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 70%;
+  margin-left: 10px;
+  font-size: 1.5rem;
+  line-height: 20px;
+}
+
+.account-name {
+  font-weight: 900;
+}
+
+.account-handler {
+  padding-top: 10px;
+  font-weight: 600;
+  color: #D9D9D9;
+}
+
+.new-trin .trini-foto {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.new-trini-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-top: 20px;
+  width: 100%;
+  margin-left: 12px;
+}
+
+.new-trini-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.new-trini-actions ul {
+  display: flex;
+  list-style: none;
+}
+
+.new-trini-details input {
+  width: 100%;
+  height: 150px;
+  border-color: #D9D9D9;
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+  text-align: center;
+}
+
+.new-trini-actions ul li {
+
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.trini-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.new-trini-actions .trini__btn {
+  width: 150px;
+  height: 35px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.5rem;
+
+}
+
+.feed-trini {
+  display: flex;
+  width: 100%;
+  min-height: 100px;
+  padding: 60px 10% 0 10%;
+  border-bottom: 1px solid #D9D9D9;
+  cursor: pointer;
+
+}
+
+.feed-trini-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 12px;
+}
+
+.trini-img-punto {
+  margin-left: auto;
+  width: 2rem;
+}
+
+.trini-detais {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.trini-detais a {
+  font-weight: 600;
+}
+
+.trini-detais span {
+  color: #808080;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-left: 3px;
+}
+
+.trini-handler {
+  padding-left: 10px;
+  color: #D9D9D9;
+}
+
+.trini-text p {
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.trini__image {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.trini-heart {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+
+
+
+
+.profile {
+  position: sticky;
+  top: 0;
+  height: 400px;
+  background-color: #52C3F5;
+  background: linear-gradient(to bottom, #515BD4 50%, white 50%);
+  border-bottom: 2px solid #D9D9D9;
+}
+
+.profile-cards {
+  position: relative;
+  padding-top: 70px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.profile__img {
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  background-color: #D9D9D9;
+  border: 10px solid #fff;
+  cursor: pointer;
+}
+
+.profile__cards-usario {
+  text-align: center;
+  padding-top: 15px;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.profile__cards-usario p{
+  color: #808080;
+  font-weight: 500;
+}
+.mis_trinit {
+  text-align: center;
+  color: #52C3F5;
+  position: sticky;
+  top: 0;
+  
+}
+.mis_trinit::after {
+  content: "";
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  width: 5%;
+  height: 5px;
+  background-color: #52C3F5;
+  right: 0;
+  margin: 0 auto;
+  display: block;
+}

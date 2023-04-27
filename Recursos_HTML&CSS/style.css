@@ -1,0 +1,51 @@
+*{
+
+}
+
+body {
+
+}
+
+/*A continuacion, el css del layout*/
+
+.grid_container {
+    display: grid;
+    outline: 4px solid white;
+    width: 80%;
+    height: 500px;
+    margin: 10px auto;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4,1fr);
+    grid-template-areas:
+    "side header header"
+    "side main main"
+    "side main main"
+    "footer main main";
+}
+
+.item {
+    font-size: 2rem;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.header {
+    grid-area: header;
+    color: red;
+}
+
+.aside {
+    grid-area: aside;
+    color: yellow;
+}
+
+.main {
+    grid-area: main;
+    color: yellow;
+}
+
+.footer {
+    grid-area: footer;
+    color: blue;
+}
