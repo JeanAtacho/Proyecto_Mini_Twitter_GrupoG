@@ -1,0 +1,790 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --Color-azulMorado: #515BD4;
+    --Color-azulTwitter: #52C3F5;
+    --Color-purpleBlue: #7606C2;
+    --Color-Bluegrey: #283747;
+    --Color-negro: #000000;
+    --Color-gris: #6b6767;
+}
+
+
+body {
+    font-family: "Public Sans", sans-serif;
+    font-size: 1.2rem;
+    background-color: #f5f5f5;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+
+.trinos_posted {
+    background-color: #f5f5f5;
+    padding: 20px 20px 20px 20px;
+}
+
+.trinos_article {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+/*a partir de aca, se realiza la estructuracion del layout grid responsive para movil, tablet y pc*/
+
+
+/*Vista para movil*/
+@media (min-width: 270px) {
+    .grid-container {
+        display: grid;
+        gap: 1px;
+        grid-template:
+            "sidebar  header" 100px
+            "sidebar  main" 100px
+            "sidebar  main" 220px /
+            100px auto;
+    }
+
+    header h1 {
+        font-family: inter;
+        color: var(--Color-azulMorado);
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    h1:hover {
+        color: var(--Color-azulTwitter);
+    }
+
+    .logo_view {
+        height: 70px;
+        padding-top: 15px;
+    }
+
+    .nav-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        margin-left: 20px;
+        padding-top: 15px;
+    }
+
+    .nav-link span {
+        display: none;
+    }
+
+    .nav-link-href {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        width: fit-content;
+        padding: 8px 25px 8px 8px;
+        text-decoration: none;
+        color: var(--Color-azulMorado);
+    }
+
+    .nav-link-href:hover {
+        color: var(--Color-azulTwitter);
+        border-radius: 9999px;
+
+    }
+
+    .nav-link-icon {
+        height: 25px;
+        margin-right: 20px;
+    }
+
+    .login_btn a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .login_btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 20px;
+        width: 80px;
+        margin: 10px auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+        background-color: var(--Color-azulMorado);
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        font-size: 8px;
+    }
+
+    .login_btn:hover {
+        background-color: var(--Color-azulTwitter);
+    }
+
+    .register_btn a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .register_btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 20px;
+        width: 80px;
+        margin: 10px auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+        background-color: var(--Color-azulMorado);
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        font-size: 8px;
+    }
+
+    .register_btn:hover {
+        background-color: var(--Color-azulTwitter);
+    }
+
+    h4 {
+        font-size: 8px;
+        color: var(--Color-azulMorado);
+    }
+
+    .developedBy {
+        font-size: 7px;
+        color: var(--Color-azulMorado);
+    }
+
+    .navyBird {
+        height: 20px;
+    }
+
+    .navBar_btn_home {
+        padding-top: 15px;
+    }
+
+    .footer {
+        margin-top: 130px;
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: header;
+        background-color: white;
+        top: 0;
+    }
+
+    .profile {
+        background: linear-gradient(to bottom, #515BD4 50%, white 50%);
+    }
+
+    .profile-cards {
+        position: relative;
+        padding-top: 5px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .profile__img {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background-color: #D9D9D9;
+        border: 1px solid #fff;
+        cursor: pointer;
+    }
+
+    .profile__cards-usario {
+        display: flex;
+        align-items: center;
+        font-weight: 300;
+        font-size: 1rem;
+        padding-top: 5px;
+    }
+
+    .profile__cards-usario p {
+        color: var(--Color-Bluegrey);
+        font-weight: 500;
+    }
+
+    .profile__cards-usario h3 {
+        font-size: 1rem;
+        color: var(--Color-gris);
+        padding-left: 5px
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        background-color: white;
+        top: 0;
+    }
+
+    .profile_picture {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        padding: 7px 8px 5px 5px;
+        border: 2px solid var(--Color-azulMorado);
+        margin-top: 10px;
+    }
+
+    h2 {
+        font-size: 15px;
+        color: var(--Color-azulMorado);
+    }
+
+    h3 {
+        font-size: 15px;
+        color: var(--Color-gris);
+    }
+
+    .trini-handler {
+        font-size: 1.1rem;
+        color: var(--Color-gris);
+    }
+
+    .trini-img-punto {
+        padding-top: 10px;
+        float: right;
+        margin-right: -7px;
+        width: 1.5rem;
+        cursor: pointer;
+    }
+
+    .trini-heart {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 65px;
+    }
+
+    .trino_phrase {
+        font-size: 10px;
+        text-align: justify;
+        padding: 5px 5px 5px 5px;
+        margin-top: 10px;
+    }
+
+    .trino_image {
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 10px;
+    }
+
+    .trinos_posted {
+        background-color: #f5f5f5;
+        padding: 20px 20px 20px 20px;
+    }
+}
+
+/*Vista para tablet*/
+@media (min-width: 600px) {
+    .grid-container {
+        grid-template:
+            "sidebar  header" 100px
+            "sidebar  main" 200px
+            "sidebar  main" 220px /
+            200px auto;
+    }
+
+    header h1 {
+        font-family: inter;
+        color: var(--Color-azulMorado);
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    h1:hover {
+        color: var(--Color-azulTwitter);
+    }
+
+    .logo_view {
+        height: 140px;
+    }
+
+    .nav-link {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+        margin-left: 15px;
+        margin-top: 25px;
+    }
+
+    .nav-link span {
+        display: flex;
+        font-size: 1.2rem;
+    }
+
+    .nav-link-href {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+        width: fit-content;
+        padding: 8px 25px 8px 8px;
+        text-decoration: none;
+        color: var(--Color-azulMorado);
+    }
+
+    .nav-link-href:hover {
+        color: var(--Color-azulTwitter);
+        border-radius: 9999px;
+
+    }
+
+    .nav-link-icon {
+        height: 23px;
+        margin-right: 20px;
+    }
+
+    .navBar_btn_home {
+        margin-top: 35px;
+    }
+
+    .login_btn a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .login_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 100px;
+        margin: 10px auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+        background-color: var(--Color-azulMorado);
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        font-size: 15px;
+    }
+
+    .login_btn:hover {
+        background-color: var(--Color-azulTwitter);
+    }
+
+    .register_btn a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .register_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 100px;
+        margin: 10px auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+        background-color: var(--Color-azulMorado);
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        font-size: 15px;
+    }
+
+    .register_btn:hover {
+        background-color: var(--Color-azulTwitter);
+    }
+
+    h4 {
+        font-size: 12px;
+        color: var(--Color-azulMorado);
+    }
+
+    .developedBy {
+        font-size: 9px;
+        color: var(--Color-azulMorado);
+    }
+
+    .navyBird {
+        height: 30px;
+    }
+
+    .footer {
+        margin-top: 95px;
+    }
+
+
+    .profile {
+        background: linear-gradient(to bottom, #515BD4 50%, white 50%);
+    }
+
+    .profile-cards {
+        position: relative;
+        padding-top: 3px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .profile__img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: #D9D9D9;
+        border: 3px solid #fff;
+        cursor: pointer;
+    }
+
+    .profile__cards-usario {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        font-size: 1.1rem;
+    }
+
+    .profile__cards-usario p {
+        color: var(--Color-Bluegrey);
+        font-weight: 500;
+    }
+
+    .profile__cards-usario h3 {
+        font-size: 1rem;
+        color: var(--Color-gris);
+        padding-left: 5px
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        background-color: white;
+        top: 0;
+    }
+
+    .main {
+        grid-area: main;
+        background-color: #f5f5f5;
+        overflow-y: scroll;
+        max-height: 100vh;
+    }
+
+    .profile_picture {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        padding: 7px 8px 5px 5px;
+        border: 2px solid var(--Color-azulMorado);
+    }
+
+    h2 {
+        font-size: 17px;
+        color: var(--Color-azulMorado);
+    }
+
+    h3 {
+        font-size: 20px;
+        color: var(--Color-gris);
+    }
+
+    .trini-handler {
+        font-size: 1.1rem;
+        color: var(--Color-gris);
+    }
+
+    .trino_phrase {
+        font-size: 14px;
+        text-align: justify;
+        padding: 5px 5px 5px 5px;
+    }
+
+    .trino_image {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+/*vista de escritorio*/
+@media (min-width: 900px) {
+    .grid-container {
+        grid-template:
+            "sidebar  header" 200px
+            "sidebar  main" 250px
+            "sidebar  main" 370px /
+            400px auto;
+    }
+
+    header h1 {
+        font-family: inter;
+        color: var(--Color-azulMorado);
+        text-align: center;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    h1:hover {
+        color: var(--Color-azulTwitter);
+    }
+
+    .navBar_btn_home {
+        margin-top: 130px;
+    }
+
+    .logo_view {
+        padding-top: 20px;
+        height: 200px;
+    }
+
+    .nav-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        margin-left: -80px;
+        margin-top: 90px;
+    }
+
+    .nav-link span {
+        font-size: 1.5rem;
+    }
+
+    .nav-link-href {
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+        font-weight: 600;
+        width: fit-content;
+        padding: 8px 25px 8px 8px;
+        text-decoration: none;
+        color: var(--Color-azulMorado);
+    }
+
+    .nav-link-href:hover {
+        color: var(--Color-azulTwitter);
+        border-radius: 9999px;
+
+    }
+
+    .nav-link-icon {
+        height: 34px;
+        margin-right: 20px;
+    }
+
+    .login_btn a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .login_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 200px;
+        margin: auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+        background-color: var(--Color-azulMorado);
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;
+    }
+
+    .login_btn:hover {
+        background-color: var(--Color-azulTwitter);
+    }
+    .register_btn a {
+        text-decoration: none;
+        color: white;
+    }
+    .register_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 200px;
+        margin: 10px auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+        background-color: var(--Color-azulMorado);
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;
+    }
+    .register_btn:hover {
+        background-color: var(--Color-azulTwitter);
+    }
+    h4 {
+        font-size: 20px;
+        color: var(--Color-azulMorado);
+    }
+
+    .developedBy {
+        font-size: 10px;
+        color: var(--Color-azulMorado);
+    }
+
+    .navyBird {
+        height: 40px;
+    }
+
+    .footer {
+        margin-top: 145px;
+    }
+
+    .profile {
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to bottom, #515BD4 50%, white 50%);
+    }
+
+    .profile-cards {
+        position: relative;
+        padding-top: 10px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .profile__img {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background-color: #D9D9D9;
+        border: 5px solid #fff;
+        cursor: pointer;
+    }
+
+    .profile__cards-usario {
+        text-align: center;
+        padding-top: 15px;
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+
+    .profile__cards-usario p {
+        color: var(--Color-Bluegrey);
+        font-weight: 500;
+    }
+
+    .profile__cards-usario h3 {
+        font-size: 1.5rem;
+        color: var(--Color-gris);
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        background-color: white;
+        top: 0;
+        max-height: 100%;
+    }
+
+    .profile_picture {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        padding: 7px 8px 5px 5px;
+        padding-top: 10px;
+        border: 2px solid var(--Color-azulMorado);
+    }
+
+    h2 {
+        font-size: 20px;
+        color: var(--Color-azulMorado);
+    }
+
+    h3 {
+        font-size: 20px;
+        color: var(--Color-negro);
+    }
+
+    .trini-handler {
+        font-size: 1.3rem;
+        color: var(--Color-gris);
+    }
+
+    .trini-img-punto {
+        padding-top: 15px;
+        float: right;
+        margin-right: -15px;
+        width: 2rem;
+        cursor: pointer;
+    }
+
+    .trini-heart {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: header;
+    background-color: #f5f5f5;
+    top: 0;
+}
+
+.main {
+    grid-area: main;
+    background-color: #f5f5f5;
+    overflow-y: scroll;
+    max-height: 100vh;
+}
+
+.feed-trini-details {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.trini-detais {
+    font-size: 1.5rem;
+}
+
+.trini-detais-info {
+    display: inline-block;
+    text-align: center;
+    margin-left: 20px;
+}
+.trini-detais-profil{
+    display: inline-block;
+    text-align: center;
+}
+
+.trino_phrase {
+    font-size: 20px;
+    text-align: justify;
+    padding: 5px 5px 5px 5px;
+}
+
+.trino_image img {
+    max-width: 100%;
+    margin: 5px auto;
+}
