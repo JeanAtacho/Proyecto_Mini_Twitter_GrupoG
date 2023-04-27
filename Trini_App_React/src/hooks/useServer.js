@@ -29,7 +29,7 @@ function useServer() {
     get: ({ url }) => httpService({ method: 'GET', url, token }).then(handleResponse),
     post: ({ url, body }) => httpService({ method: 'POST', url, token, body }).then(handleResponse),
     put: ({ url, body }) => httpService({ method: 'PUT', url, token, body }).then(handleResponse),
-    delete: ({ url }) => httpService({ method: 'DELETE', url, token })
+    delete: ({ url }) => httpService({ method: 'DELETE', url, token }).then(handleResponse),
   }
 }
 

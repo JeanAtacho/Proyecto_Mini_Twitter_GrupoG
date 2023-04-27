@@ -46,7 +46,7 @@ body {
         grid-template:
             "sidebar"    140px
             "header"     20px
-            "main"       390px
+            "main"       310px
     }
     header h1 {
         font-family: inter;
@@ -59,16 +59,19 @@ body {
         color: var(--Color-azulTwitter);
     }
     .logo_view {
-        height: 80px;
+        height: 50px;
     }
     .navBar_btn_home {
         margin-top: 10px;
     }
-    .login_btn a {
+    .navBar_btn_main {
+        margin-top: 10px;
+    }
+    .loginLogout_btn a {
         text-decoration: none;
         color: white;
     }
-    .login_btn {
+    .loginLogout_btn {
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -84,7 +87,7 @@ body {
         font-family: 'Inter', sans-serif;
         font-size: 8px;
     }
-    .login_btn:hover {
+    .loginLogout_btn:hover {
         background-color: var(--Color-azulTwitter);
     }
     .register_btn a {
@@ -98,7 +101,6 @@ body {
         height: 20px;
         width: 80px;
         margin: 10px auto;
-        margin-left: 10px;
         padding-top: 5px;
         padding-bottom: 5px;
         border: none;
@@ -109,6 +111,26 @@ body {
         font-size: 8px;
     }
     .register_btn:hover {
+        background-color: var(--Color-azulTwitter);
+    }
+    .logout_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10px;
+        width: 50px;
+        margin: 10px auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+        background-color: var(--Color-azulMorado);
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;
+        color: white;
+    }
+    .logout_btn:hover {
         background-color: var(--Color-azulTwitter);
     }
     h4 {
@@ -123,7 +145,7 @@ body {
         height: 20px;
     }
     .footer {
-        margin-top: 420px;
+        margin-top: 340px;
     }
     .header {
         display: flex;
@@ -183,15 +205,73 @@ body {
     .trinos_article {
         background-color: white;
     }
+    .header_user{
+        display: flex;
+        padding-top: 20px;
+    }
+    .profile_user{
+        padding-left: 70px;
+        margin-top: 5px;
+    }
+    .textAreaBox {
+        position: relative;
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+    .textAreaBox textarea {
+        width: 80%;
+        height: 10px;
+        padding: 10px;
+        border: 1px solid var(--Color-azulMorado);
+        font-size: 20px;
+        resize: none;
+    }
+    .textAreaBox button {
+        position: absolute;
+        bottom: 1px; 
+        right: 120px;
+    }
+    .textArea_btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20px;
+            width: 50px;
+            border: none;
+            background-color: var(--Color-azulMorado);
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            color: white;
+        }
+        .textArea_btn:hover {
+            background-color: var(--Color-azulTwitter);
+        }
+        ul {
+            margin-top: 50px;
+        }
+        li {
+            padding-top: 40px;
+            font-size: 30px;
+        }
+        a {
+            text-decoration: none;
+        }
 }
+
+
+
+
+
 /*Vista para tablet*/
 @media (min-width: 600px) {
     .grid-container {
         grid-template:
             "sidebar  header"  100px
             "sidebar  main"    200px
-            "sidebar  main"    290px /
-            230px     auto;
+            "sidebar  main"    220px /
+            200px     auto;
     }
     header h1 {
         font-family: inter;
@@ -204,16 +284,20 @@ body {
         color: var(--Color-azulTwitter);
     }
     .logo_view {
-        height: 140px;
+            padding-top: 20px;
+            height: 120px;
     }
     .navBar_btn_home {
-        margin-top: 200px;
+        margin-top: 100px;
     }
-    .login_btn a {
+    .navBar_btn_main {
+        margin-top: 70px;
+    }
+    .loginLogout_btn a {
         text-decoration: none;
         color: white;
     }
-    .login_btn {
+    .loginLogout_btn {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -229,7 +313,7 @@ body {
         font-family: 'Inter', sans-serif;
         font-size: 15px;
     }
-    .login_btn:hover {
+    .loginLogout_btn:hover {
         background-color: var(--Color-azulTwitter);
     }
     .register_btn a {
@@ -255,19 +339,42 @@ body {
     .register_btn:hover {
         background-color: var(--Color-azulTwitter);
     }
+    .logout_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 35px;
+        width: 120px;
+        margin: 10px auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+        background-color: var(--Color-azulMorado);
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        font-size: 15px;
+        color: white;
+    }
+    .logout_btn:hover {
+        background-color: var(--Color-azulTwitter);
+    }
     h4 {
-        font-size: 12px;
+        font-size: 10px;
         color: var(--Color-azulMorado);
     }
     .developedBy {
-        font-size: 9px;
+        font-size: 8.5px;
         color: var(--Color-azulMorado);
     }
     .navyBird {
         height: 30px;
     }
-    .footer {
-        margin-top: 100px;
+    .footer_home {
+        margin-top: 120px;
+    }
+    .footer_main {
+        margin-top: 60px;
     }
     .header {
         display: flex;
@@ -289,6 +396,8 @@ body {
         max-height: 100vh;
     }
     .profile_picture {
+        position: relative;
+        top: -4px;
         height: 50px;
         width: 50px;
         border-radius: 50%;
@@ -296,11 +405,15 @@ body {
         border: 2px solid var(--Color-azulMorado);
     }
     h2 {
-        font-size: 14px;
+        position: relative;
+        top: -8px;
+        font-size: 10px;
         color: var(--Color-Bluegrey);
     }
     h3 {
-        font-size: 12px;
+        position: relative;
+        top: -8px;
+        font-size: 8px;
         color: var(--Color-gris);
     }
     .trino_phrase{
@@ -316,18 +429,75 @@ body {
         max-width: 100%;
         margin: 5px auto;
     }
+    .header_user{
+        display: flex;
+        padding-top: 10px;
+    }
+    .profile_user{
+        padding-left: 30px;
+        padding-right: 80px;
+        margin-top: 5px;
+    }
+    .textAreaBox {
+        position: relative;
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+    .textAreaBox textarea {
+        width: 80%;
+        height: 60px;
+        padding: 10px;
+        border: 1px solid var(--Color-azulMorado);
+        font-size: 8px;
+        resize: none;
+    }
+    .textAreaBox button {
+        position: absolute;
+        bottom: 1px; 
+        right: 20px;
+        top:  65px;
+    }
+    .textArea_btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20px;
+            width: 70px;
+            border: none;
+            background-color: var(--Color-azulMorado);
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            color: white;
+        }
+        .textArea_btn:hover {
+            background-color: var(--Color-azulTwitter);
+        }
+        ul {
+            margin-top: 50px;
+        }
+        li {
+            padding-top: 20px;
+            font-size: 20px;
+        }
+        a {
+            text-decoration: none;
+        }
 }
+
+
+
 
 
 /*vista de escritorio*/
 @media (min-width: 900px) {
     .grid-container {
-
         grid-template:
             "sidebar  header"  200px
             "sidebar  main"    250px
-            "sidebar  main"    155px /
-            350px     auto;
+            "sidebar  main"    370px /
+            400px     auto;
     }
     header h1 {
         font-family: inter;
@@ -340,24 +510,27 @@ body {
         color: var(--Color-azulTwitter);
     }
     .navBar_btn_home {
+        margin-top: 240px;
+    }
+    .navBar_btn_main {
         margin-top: 100px;
     }
     .logo_view {
         padding-top: 20px;
         height: 200px;
     }
-    .login_btn a {
+    .loginLogout_btn a {
         text-decoration: none;
         color: white;
     }
-    .login_btn {
+    .loginLogout_btn {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 40px;
-        width: 170px;
+        width: 200px;
         margin: auto;
-        padding-top: 5px;
+        padding-top: 10px;
         padding-bottom: 5px;
         border: none;
         background-color: var(--Color-azulMorado);
@@ -366,7 +539,7 @@ body {
         font-family: 'Inter', sans-serif;
         font-size: 20px;
     }
-    .login_btn:hover {
+    .loginLogout_btn:hover {
         background-color: var(--Color-azulTwitter);
     }
     .register_btn a {
@@ -378,7 +551,7 @@ body {
         justify-content: center;
         align-items: center;
         height: 40px;
-        width: 170px;
+        width: 200px;
         margin: 10px auto;
         padding-top: 5px;
         padding-bottom: 5px;
@@ -392,6 +565,26 @@ body {
     .register_btn:hover {
         background-color: var(--Color-azulTwitter);
     }
+    .logout_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 200px;
+        margin: 10px auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+        background-color: var(--Color-azulMorado);
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;
+        color: white;
+    }
+    .logout_btn:hover {
+        background-color: var(--Color-azulTwitter);
+    }
     h4 {
         font-size: 20px;
         color: var(--Color-azulMorado);
@@ -403,8 +596,11 @@ body {
     .navyBird {
         height: 40px;
     }
-    .footer {
-        margin-top: 100px;
+    .footer_home {
+        margin-top: 180px;
+    }
+    .footer_main {
+        margin-top: 170px;
     }
     .header {
         display: flex;
@@ -418,7 +614,7 @@ body {
         grid-area: sidebar;
         background-color: white;
         top: 0;
-        max-height: 100vh;
+        max-height: 100%;
     }
     .main {
         grid-area: main;
@@ -450,4 +646,58 @@ body {
         max-width: 100%;
         margin: 5px auto;
     }
-}
+    .header_user{
+        display: flex;
+        padding-top: 20px;
+    }
+    .profile_user{
+        padding-left: 70px;
+        margin-top: 5px;
+    }
+    .textAreaBox {
+        position: relative;
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+    .textAreaBox textarea {
+        width: 80%;
+        height: 100px;
+        padding: 10px;
+        border: 1px solid var(--Color-azulMorado);
+        font-size: 20px;
+        resize: none;
+    }
+    .textAreaBox button {
+        position: absolute;
+        bottom: 1px; 
+        right: 120px;
+        top: 120px;
+    }
+    .textArea_btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 100px;
+            border: none;
+            background-color: var(--Color-azulMorado);
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            color: white;
+        }
+        .textArea_btn:hover {
+            background-color: var(--Color-azulTwitter);
+        }
+        ul {
+            margin-top: 50px;
+        }
+        li {
+            padding-top: 40px;
+            font-size: 30px;
+        }
+        a {
+            text-decoration: none;
+        }
+    }
