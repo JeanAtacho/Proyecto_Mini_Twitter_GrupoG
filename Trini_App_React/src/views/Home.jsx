@@ -1,94 +1,85 @@
 import { Link } from "react-router-dom"
 
-function Index() {
+function Home() {
 
   return <>
-    <div className="grid-container">
-
-
-      <header className="header">
-        <div id="page-container">
-          <div id="dashboard">
-            <div id="profile-summary">
-              <div className="content">
-                <img className='avatar' src="assets/images/cristobal.jpeg" />
-                <p className="user">@Usuario</p>
+    <main className="main">
+      <section className="trinos_posted">
+        <article className="trinos_article">
+          <div className="feed-trini-details">
+            <div className="trini-detais">
+              <div className="trini-detais-info">
+                <img className="profile_picture" src="./assets/images/trini_purple.png" alt="" />
+                <h2>@Usuario_Trini</h2>
+                <h3>Nombre_Apellido</h3>
+                <p className="trini-handler">Trinado hace 1 hora</p>
               </div>
+              <img src="./assets/Images/puntos.svg" alt="" className="trini-img-punto" />
+            </div>
+            <p className="trino_phrase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+              delectus? Iste in nulla, exercitationem aspernatur aliquid repellendus delectus quae dicta.
+              Dolor fugit obcaecati error impedit iste esse, odio nisi corporis.</p>
+            <figure className="trino_image">
+              <img src="./assets/images/imagenTrinoEjemplo.jpg" alt="" />
+            </figure>
+            <div className="trini-icons">
+              <img src="./assets/images/heart.svg" alt="heart" className="trini-heart" />
             </div>
           </div>
-        </div>
-          <div>
-            <div id="tweet-content">
-              <textarea className="tweet-compose" placeholder="Introduce tu mensaje con un máximo de 250 carácteres"></textarea>
-              <div id="tweet-controls">
-                <button className="trinar_btn" id="trinar-submit">Trinar</button>
+        </article>
+      </section>
+      <section className="trinos_posted">
+        <article className="trinos_article">
+
+          <div className="feed-trini-details">
+            <div className="trini-detais">
+              <div className="trini-detais-info">
+                <img className="profile_picture" src="./assets/images/trini_purple.png" alt="" />
+                <h2>@Usuario_Trini</h2>
+                <h3>Nombre_Apellido</h3>
+                <p className="trini-handler">Trinado hace 2 hora</p>
               </div>
+              <img src="./assets/Images/puntos.svg" alt="" className="trini-img-punto" />
+            </div>
+            <p className="trino_phrase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+              delectus? Iste in nulla, exercitationem aspernatur aliquid repellendus delectus quae dicta.
+              Dolor fugit obcaecati error impedit iste esse, odio nisi corporis.</p>
+            <figure className="trino_image">
+              <img src="./assets/images/imagenTrinoEjemplo.jpg" alt="" />
+            </figure>
+            <div className="trini-icons">
+              <a href="!#"><img src="./assets/images/heart.svg" alt="heart" className="trini-heart" /></a>
             </div>
           </div>
-      </header>
+        </article>
+      </section>
+      <section className="trinos_posted">
+        <article className="trinos_article">
 
-      <aside className="sidebar">
-        <img className="logo_view" src="./assets/images/Logo_Trini_redi.png" alt="Logo_Trini_redi" />
-
-        <nav className="navBar_btn_home">
-          <div className="sidebar-menu_item sidebar-menu_item-active">
-            <img src="./assets/images/hometrini.svg" alt="" className="sidebar-menu_item-icon" />
-            Inicio
-          </div>
-          <div className="sidebar-menu_item">
-            <img src="./assets/images/usertrini.svg" alt="" className="sidebar-menu_item-icon" />
-            Perfil
-          </div>
-          <div className="salir_btn">
-            <Link to="http://google.com">Salir</Link>
-          </div>
-        </nav>
-
-        <footer className="footer">
-          <img className="navyBird" src="./assets/images/trini_navy.png" alt="" />
-
-          <h4>@2023 Trini, Inc.</h4>
-          <div className="developedBy">
-            <p>Developed by: Jean | Marie |Olha. Program: &#123; Powercoders &#125; - Hack a boss.</p>
-          </div>
-        </footer>
-      </aside>
-
-      <main className="main">
-        <section className="trinos_posted">
-          <article className="trinos_article">
-            <img className="profile_picture" src="./assets/images/trini_purple.png" alt="" />
-            <h2>@Usuario</h2>
-            <p className="trino_phrase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, delectus? Iste in nulla, exercitationem aspernatur aliquid repellendus delectus quae dicta. Dolor fugit obcaecati error impedit iste esse, odio nisi corporis.</p>
+          <div className="feed-trini-details">
+            <div className="trini-detais">
+              <div className="trini-detais-info">
+                <img className="profile_picture" src="./assets/images/trini_purple.png" alt="" />
+                <h2>@Usuario_Trini</h2>
+                <h3>Nombre_Apellido</h3>
+                <p className="trini-handler">Trinado hace 3 hora</p>
+              </div>
+              <img src="./assets/Images/puntos.svg" alt="" className="trini-img-punto" />
+            </div>
+            <p className="trino_phrase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+              delectus? Iste in nulla, exercitationem aspernatur aliquid repellendus delectus quae dicta.
+              Dolor fugit obcaecati error impedit iste esse, odio nisi corporis.</p>
             <figure className="trino_image">
               <img src="./assets/images/imagenTrinoEjemplo.jpg" alt="" />
             </figure>
-          </article>
-        </section>
-        <section className="trinos_posted">
-          <article className="trinos_article">
-            <img className="profile_picture" src="./assets/images/trini_purple.png" alt="" />
-            <h2>@Usuario</h2>
-            <p className="trino_phrase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, delectus? Iste in nulla, exercitationem aspernatur aliquid repellendus delectus quae dicta. Dolor fugit obcaecati error impedit iste esse, odio nisi corporis.</p>
-            <figure className="trino_image">
-              <img src="./assets/images/imagenTrinoEjemplo.jpg" alt="" />
-            </figure>
-          </article>
-        </section>
-        <section className="trinos_posted">
-          <article className="trinos_article">
-            <img className="profile_picture" src="./assets/images/trini_purple.png" alt="" />
-            <h2>@Usuario</h2>
-            <p className="trino_phrase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, delectus? Iste in nulla, exercitationem aspernatur aliquid repellendus delectus quae dicta. Dolor fugit obcaecati error impedit iste esse, odio nisi corporis.</p>
-            <figure className="trino_image">
-              <img src="./assets/images/imagenTrinoEjemplo.jpg" alt="" />
-            </figure>
-          </article>
-        </section>
-
-      </main>
-    </div>
+            <div className="trini-icons">
+              <a href="!#"><img src="./assets/images/heart.svg" alt="heart" className="trini-heart" /></a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
   </>
 }
 
-export default Index
+export default Home

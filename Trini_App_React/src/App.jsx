@@ -2,27 +2,28 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 
-import Login from './views/Login'
-import Index from './views/Aside'
+import Login from './views/login'
+import Home from './views/Home';
 import { PrivateRoutes } from './components/PrivateRoutes';
-import Aside from './views/Aside';
+import Aside from './views/aside';
+import Header from './components/Header';
 
 
 function App() {
   return (
     <>
-      <Aside />
-      <Login/>
+      <div className="grid-container">
+        <Header />
+        <Aside />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
 
-      <Routes>
-
-        <Route path="/Index" element={<Index />} />
-        <Route path="/login" element={<Login />} />
-
-        <Route element={<PrivateRoutes />}>
-          <Route path="/profile" />
-        </Route>
-      </Routes>
+          <Route element={<PrivateRoutes />}>
+            <Route path="/profile" />
+          </Route>
+        </Routes>
+      </div>
     </>
   );
 }
