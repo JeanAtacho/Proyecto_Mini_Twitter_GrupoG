@@ -1,17 +1,24 @@
 import {Link} from 'react-router-dom'
 import Creditos from '../components/creditos'
 
+import useAuth from '../hooks/useAuth'
+
 function Aside() {
+    const { isAuthenticated, logout } = useAuth()
     return <>
         <aside className="sidebar">
             <img className="logo_view" src="src/image/Logo_Trini_redi.png" />
     
             <nav className="navBar_btn_home">
-                <div className="login_btn">
-                    <Link to="./login">Iniciar sesion</Link>
+                <div>
+                    {!isAuthenticated && <Link to="./login" className="login_btn">Iniciar sesion</Link>}
                 </div>
-                <div className="register_btn">
-                    <Link to="./register">Registrar Usuario</Link>
+                <div>
+                    {!isAuthenticated && <Link to="./register" className="login_btn">Registrar Usuario</Link>}
+                </div>
+
+                <div>
+                    {isAuthenticated && <Link to="/#" className="login_btn" onClick={logout}>Cerrar sesión</Link>}
                 </div>
             </nav>
     

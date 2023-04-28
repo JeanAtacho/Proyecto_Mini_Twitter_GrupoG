@@ -13,7 +13,6 @@ function Home() {
     fetchTrinos()
   }, [])
 
-
     return <>
     <main className="main">
       <section className="trinos_posted">

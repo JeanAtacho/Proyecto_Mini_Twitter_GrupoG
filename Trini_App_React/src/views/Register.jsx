@@ -23,7 +23,7 @@ function Register() {
                     <label htmlFor="name" className="label">Nombre</label>
                 </div>
                 <div className="inputContainer">
-                    <input type="text" name="name" id="name" className="input" placeholder="Juan Alvarez" required />
+                    <input type="text" name="name" id="name" className="input" placeholder="Juan Alvarez"  />
                 </div>
 
                 <div className="inputContainer">

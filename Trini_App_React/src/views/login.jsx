@@ -11,7 +11,7 @@ function Login() {
     const credentials = Object.fromEntries(new FormData(e.target))
     const { data } = await post({ url: '/login', body: credentials })
     console.log(credentials)
-    if (data) return navigate('/home')
+    if (data.status == 'ok') return navigate('/home')
   }
 
   return (
@@ -23,7 +23,7 @@ function Login() {
             <label htmlFor="email" className="label">Correo</label>
             </div>
             <div className="inputContainer">
-                <input type="text" name="email" id="email" className="input" placeholder="juan@example.com" required />
+                <input type="email" name="email" id="email" className="input" placeholder="juan@example.com" required />
             </div>
 
             <div className="inputContainer">
