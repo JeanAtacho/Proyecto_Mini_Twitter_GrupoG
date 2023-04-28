@@ -8,6 +8,7 @@ import Home from './views/Home';
 import { PrivateRoutes } from './components/PrivateRoutes';
 import Aside from './views/aside';
 import Header from './components/Header';
+import HomeUser from './views/HomeUser';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         <Aside />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/homeUser" element={<HomeUser />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
