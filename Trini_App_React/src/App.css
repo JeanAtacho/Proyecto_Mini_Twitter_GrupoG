@@ -44,9 +44,9 @@ body {
         display: grid;
         gap: 1px;
         grid-template:
-            "sidebar"    140px
-            "header"     20px
-            "main"       390px
+            "sidebar header" 100px
+            "sidebar main" 100%
+            "sidebar main" 220px / 100px auto;
     }
     header h1 {
         font-family: inter;
@@ -59,22 +59,21 @@ body {
         color: var(--Color-azulTwitter);
     }
     .logo_view {
-        height: 80px;
+        height: 10%;
+        padding-top: 30px;
     }
-    .navBar_btn_home {
-        margin-top: 10px;
-    }
+   
     .login_btn a {
         text-decoration: none;
         color: white;
     }
     .login_btn {
-        display: inline-flex;
+        display: flex;
         justify-content: center;
         align-items: center;
-        height: 20px;
-        width: 80px;
-        margin: 0;
+        height: 28px;
+        width: 80%;
+        margin: 10px;
         padding-top: 5px;
         padding-bottom: 5px;
         border: none;
@@ -82,7 +81,9 @@ body {
         border-radius: 6px;
         cursor: pointer;
         font-family: 'Inter', sans-serif;
-        font-size: 8px;
+        font-size: 9px;
+        text-decoration: none;
+        color: white;
     }
     .login_btn:hover {
         background-color: var(--Color-azulTwitter);
@@ -122,9 +123,7 @@ body {
     .navyBird {
         height: 20px;
     }
-    .footer {
-        margin-top: 420px;
-    }
+    
     .header {
         display: flex;
         justify-content: center;
@@ -134,9 +133,16 @@ body {
         top: 0;
     }
     .sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        place-content: space-between center;
+        height: 100vh;
+        position: fixed;
+        width: 19.9%;
         grid-area: sidebar;
         background-color: white;
         top: 0;
+        z-index: 5px;
     }
     .main {
         grid-area: main;
@@ -189,7 +195,7 @@ body {
     .grid-container {
         grid-template:
             "sidebar  header"  100px
-            "sidebar  main"    200px
+            "sidebar  main"    100%
             "sidebar  main"    290px /
             230px     auto;
     }
@@ -204,11 +210,9 @@ body {
         color: var(--Color-azulTwitter);
     }
     .logo_view {
-        height: 140px;
+        height: 70px;
     }
-    .navBar_btn_home {
-        margin-top: 200px;
-    }
+
     .login_btn a {
         text-decoration: none;
         color: white;
@@ -218,8 +222,8 @@ body {
         justify-content: center;
         align-items: center;
         height: 30px;
-        width: 100px;
-        margin: 10px auto;
+        width: 110px;
+        margin: 10px;
         padding-top: 5px;
         padding-bottom: 5px;
         border: none;
@@ -227,7 +231,9 @@ body {
         border-radius: 6px;
         cursor: pointer;
         font-family: 'Inter', sans-serif;
-        font-size: 15px;
+        font-size: 12px;
+        text-decoration: none;
+        color: white;
     }
     .login_btn:hover {
         background-color: var(--Color-azulTwitter);
@@ -266,9 +272,7 @@ body {
     .navyBird {
         height: 30px;
     }
-    .footer {
-        margin-top: 100px;
-    }
+  
     .header {
         display: flex;
         justify-content: center;
@@ -278,9 +282,16 @@ body {
         top: 0;
     }
     .sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        place-content: space-between center;
+        height: 100vh;
+        position: fixed;
+        width: 19.9%;
         grid-area: sidebar;
         background-color: white;
         top: 0;
+        z-index: 5px;
     }
     .main {
         grid-area: main;
@@ -324,7 +335,7 @@ body {
     .grid-container {
         grid-template:
             "sidebar  main"  200px
-            "header   main"    250px
+            "header   main"    100%
             "sidebar  main"    155px /
             350px     auto;
     }
@@ -339,7 +350,11 @@ body {
         color: var(--Color-azulTwitter);
     }
     .navBar_btn_home {
-        margin-top: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
     }
     .logo_view {
         padding-top: 20px;
@@ -355,7 +370,7 @@ body {
         align-items: center;
         height: 30px;
         width: 110px;
-        margin: auto;
+        margin: 10px;
         padding-top: 5px;
         padding-bottom: 5px;
         border: none;
@@ -364,6 +379,8 @@ body {
         cursor: pointer;
         font-family: 'Inter', sans-serif;
         font-size: 12px;
+        text-decoration: none;
+        color: white;
     }
     .login_btn:hover {
         background-color: var(--Color-azulTwitter);
@@ -403,7 +420,6 @@ body {
         height: 40px;
     }
     .footer {
-        margin-top: 182px;
         margin-bottom: 5px;
     }
     .header {
@@ -417,6 +433,10 @@ body {
         top: 0;
     }
     .sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        place-content: space-between center;
+        height: 100vh;
         position: fixed;
         width: 19.9%;
         grid-area: sidebar;
