@@ -11,7 +11,7 @@ function Aside() {
                     <Link to="./login">Iniciar sesion</Link>
                 </div>
                 <div className="register_btn">
-                    <Link to="http://google.com">Registrar Usuario</Link>
+                    <Link to="./register">Registrar Usuario</Link>
                 </div>
             </nav>
     

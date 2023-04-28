@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 
 import Login from './views/login'
+import Register from './views/register';
 import Home from './views/Home';
 import { PrivateRoutes } from './components/PrivateRoutes';
 import Aside from './views/aside';
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
           <Route element={<PrivateRoutes />}>
             <Route path="/profile" />

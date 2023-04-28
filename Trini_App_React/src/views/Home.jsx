@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom"
+import useServer from '../hooks/useServer.js'
+import { useEffect, useState} from "react"
 
 function Home() {
+  const { get } = useServer()
+  const [trinos, setTrinos] = useState([])
+  useEffect(() => {
+    async function fetchTrinos() {
+      const { todosTrino } = await get({ url: '/' })
+      setTrinos(todosTrino.data)
+    }
+    fetchTrinos()
+  }, [])
 
-  return <>
+
+    return <>
     <main className="main">
       <section className="trinos_posted">
         <article className="trinos_article">
@@ -39,7 +51,7 @@ function Home() {
       </section>
 
     </main>
-  </>
+    </>
 }
 
 export default Home

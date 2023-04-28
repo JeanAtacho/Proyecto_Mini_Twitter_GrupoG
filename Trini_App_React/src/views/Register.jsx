@@ -9,60 +9,40 @@ function Register() {
         e.preventDefault()
 
         const credentials = Object.fromEntries(new FormData(e.target))
-        const { data } = await post({ url: '/Register', body: credentials })
-        //const usr = await data && await get({ url: '/user/' })
-        if (data) return navigate('/')
+        const { data } = await post({ url: '/user', body: credentials })
+        console.log(credentials)
+        if (data) return navigate('/login')
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
+        <div main className="allForms">
+            <form onSubmit={handleSubmit} className="form">
+                <img className="logo_trini" src="src/image/Logo_Trini_redi.png" alt="Logo_Trini" />
 
-                <div>
-                    <label htmlFor="name">Name</label>
-                    <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        autoComplete="text"
-                        required
-                        placeholder="john"
-                    />
+                <div className="inputContainer">
+                    <label htmlFor="name" className="label">Nombre</label>
+                </div>
+                <div className="inputContainer">
+                    <input type="text" name="name" id="name" className="input" placeholder="Juan Alvarez" required />
                 </div>
 
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        required
-                        placeholder="john@doe.com"
-                    />
+                <div className="inputContainer">
+                    <label htmlFor="email" className="label">Correo</label>
+                </div>
+                <div className="inputContainer">
+                    <input type="text" name="email" id="email" className="input" placeholder="juan@example.com" required />
                 </div>
 
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        id="password"
-                        name="password"
-                        type="password"
-                        autoComplete="password"
-                        required
-                        placeholder="123456"
-                    />
+                <div className="inputContainer">
+                    <label htmlFor="password" className="label">Contraseña</label>
                 </div>
-            </div>
+                <div className="inputContainer">
+                    <input type="password" name="password" id="password" className="input" placeholder="123456" required />
+                </div>
 
-            <div>
-                <button type="Image"> Subir tu foto </button>
-            </div>
-
-            <div>
-                <button type="submit"> Registrar Usuario </button>
-            </div>
-        </form>
+                <input type="submit" className="submitBtn" value="Registrar Usuario" />
+            </form>
+        </div>
     )
 }
 
