@@ -1,60 +1,50 @@
-import { Link } from "react-router-dom"
+import Trino from '../components/Trino.jsx'
+import useAuth from '../hooks/useAuth.js'
 import useServer from '../hooks/useServer.js'
 import { useEffect, useState } from "react"
 
+import TimeAgo from 'javascript-time-ago'
+import es from 'javascript-time-ago/locale/es'
+TimeAgo.addDefaultLocale(es)
+const timeAgo = new TimeAgo('es-ES')
+
 function HomeUser() {
-    const { get } = useServer()
+    const { get, post } = useServer()
+    const {isAuthenticated, user} = useAuth()
     const [trinos, setTrinos] = useState([])
+
+    async function fetchTrinos() {
+        const trinosData = await get({ url: '/' })
+        setTrinos(trinosData.data.data)
+    }
+
     useEffect(() => {
-        async function fetchTrinos() {
-            const { todosTrino } = await get({ url: '/' })
-            setTrinos(todosTrino.data)
-        }
         fetchTrinos()
     }, [])
 
+    // useEffect(() => {
+    //     console.log({trinos})
+    // }, [trinos])
+
+    async function createTrino(e) {
+        e.preventDefault()
+
+        const dataForm = new FormData(e.target)
+        const { data: {data: trino} } = await post({ url: '/', body: dataForm, hasImage: true })
+        setTrinos([trino, ...trinos])
+    }
 
     return <>
         <main className="main">
-            <section class="boxTrinar">
-                <form>
-                    <textarea class="input-trino" placeholder="Escribe tu trino aquí..."></textarea>
-                    <button class="btn-trinar" type="submit">Trinar</button>
+            <section className="boxTrinar">
+                <form onSubmit={createTrino}>
+                    <textarea name="text" className="input-trino" placeholder="Escribe tu trino aquí..."></textarea>
+                    <input type="file" name="image" id="" />
+                    <button className="btn-trinar" type="submit">Trinar</button>
                 </form>
             </section>
-            <section className="trinos_posted">
-                <article className="trinos_article">
-                    <img className="profile_picture" src="src/image/trini_purple.png" alt="" />
-                    <h2>@Usuario_Trini</h2>
-                    <h3>Nombre_Apellido</h3>
-                    <p className="trino_phrase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, delectus? Iste in nulla, exercitationem aspernatur aliquid repellendus delectus quae dicta. Dolor fugit obcaecati error impedit iste esse, odio nisi corporis.</p>
-                    <figure className="trino_image">
-                        <img src="src/image/imagenTrinoEjemplo.jpg" alt="" />
-                    </figure>
-                </article>
-            </section>
-            <section className="trinos_posted">
-                <article className="trinos_article">
-                    <img className="profile_picture" src="src/image/trini_purple.png" alt="" />
-                    <h2>@Usuario_Trini</h2>
-                    <h3>Nombre_Apellido</h3>
-                    <p className="trino_phrase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, delectus? Iste in nulla, exercitationem aspernatur aliquid repellendus delectus quae dicta. Dolor fugit obcaecati error impedit iste esse, odio nisi corporis.</p>
-                    <figure className="trino_image">
-                        <img src="src/image/imagenTrinoEjemplo.jpg" alt="" />
-                    </figure>
-                </article>
-            </section>
-            <section className="trinos_posted">
-                <article className="trinos_article">
-                    <img className="profile_picture" src="src/image/trini_purple.png" alt="" />
-                    <h2>@Usuario_Trini</h2>
-                    <h3>Nombre_Apellido</h3>
-                    <p className="trino_phrase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, delectus? Iste in nulla, exercitationem aspernatur aliquid repellendus delectus quae dicta. Dolor fugit obcaecati error impedit iste esse, odio nisi corporis.</p>
-                    <figure className="trino_image">
-                        <img src="src/image/imagenTrinoEjemplo.jpg" alt="" />
-                    </figure>
-                </article>
-            </section>
+            
+            {trinos && trinos.map(trino => <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} />)}
 
         </main>
     </>
