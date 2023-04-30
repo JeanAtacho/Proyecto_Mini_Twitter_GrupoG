@@ -8,7 +8,7 @@ import es from 'javascript-time-ago/locale/es'
 TimeAgo.addDefaultLocale(es)
 const timeAgo = new TimeAgo('es-ES')
 
-function Home() {
+function UserProfile() {
     const { get } = useServer()
     const { user } = useAuth()
     const [trinos, setTrinos] = useState([])
@@ -24,10 +24,14 @@ function Home() {
     }, [])
 
     return <>
-      <main className="main">
-        {trinos && trinos.map(trino => <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} />)}
-      </main>
+      <section>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint libero, dolore quam accusamus dicta consectetur placeat illo corporis quis rerum, natus vel laboriosam dolorem earum repellendus sequi eligendi, excepturi ad.</p>
+      </section>
+      <section className="main">
+          {trinos && trinos.map(trino => <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} />)}
+      </section>
     </>
 }
 
-export default Home
+export default UserProfile
+// {trinos && trinos.map(trino => <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} />)}

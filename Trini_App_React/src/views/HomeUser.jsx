@@ -1,7 +1,11 @@
+import { useEffect, useState } from "react"
+
 import Trino from '../components/Trino.jsx'
+
+
 import useAuth from '../hooks/useAuth.js'
 import useServer from '../hooks/useServer.js'
-import { useEffect, useState } from "react"
+
 
 import TimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
@@ -17,6 +21,7 @@ function HomeUser() {
         const trinosData = await get({ url: '/' })
         setTrinos(trinosData.data.data)
     }
+
 
     useEffect(() => {
         fetchTrinos()
@@ -34,6 +39,8 @@ function HomeUser() {
         setTrinos([trino, ...trinos])
     }
 
+
+
     return <>
         <main className="main">
             <section className="boxTrinar">
@@ -43,7 +50,8 @@ function HomeUser() {
                     <button className="btn-trinar" type="submit">Trinar</button>
                 </form>
             </section>
-            
+
+
             {trinos && trinos.map(trino => <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} />)}
 
         </main>

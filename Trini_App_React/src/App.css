@@ -479,8 +479,8 @@ body {
         padding: 5px 5px 5px 5px;
     }
     .trino_image img {
-        max-width: 100%;
-        margin: 5px auto;
+        width: 100vw;
+        margin: 10px auto;
     }
 
     /*CSS DEL FORMULARIO*/
@@ -572,4 +572,60 @@ body {
     .btn-trinar:hover {
     background-color: var(--Color-azulTwitter);
     }
+    .trino_date {
+        font-family: "Public Sans", sans-serif;
+        padding-top: 10px;
+        margin-right: 20px;
+        text-align: right;
+        font-size: 12px;
+        color: var();
+    }
+
+    /*CSS DEL LIKE*/
+
+    .product__footer {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 1em 1.5em;
+      }
+      
+      .product__like {
+        font-family: 'products';
+      }
+      
+      .product__like .icon-heart-empty {
+        color: gray;
+      }
+      
+      .product__like .icon-heart {
+        color: tomato;
+      }
+      
+      .product__add-to-cart {
+        background-color: var(--add-to-cart-button);
+        border-radius: 5px;
+        color: white;
+        margin: 0 .5em;
+        padding: .5em .75em;
+        text-decoration: none;
+      }
+      
+      .fixed-details {
+        position: fixed;
+        bottom: 0;
+        background-color: var(--bg-body);
+        border-top: 1px solid var(--border-color);
+        padding: 1em;
+        width: 100%;
+      }
+      
+      .icon-heart {
+        color: tomato;
+      }
+      
+      .icon-heart-empty {
+        color: gray;
+      }
+      
 }

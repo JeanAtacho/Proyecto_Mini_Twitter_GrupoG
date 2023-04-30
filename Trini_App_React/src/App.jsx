@@ -9,6 +9,7 @@ import { PrivateRoutes } from './components/PrivateRoutes';
 import Aside from './views/aside';
 import Header from './components/Header';
 import HomeUser from './views/HomeUser';
+import UserProfile from './views/UserProfile';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/homeUser" element={<HomeUser />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/userProfile" element={<UserProfile />} />
 
           <Route element={<PrivateRoutes />}>
             <Route path="/profile" />
