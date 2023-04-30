@@ -11,15 +11,25 @@ function Aside() {
     
             <nav className="navBar_btn_home">
                 <div>
-                    {!isAuthenticated && <Link to="./login" className="login_btn">Iniciar sesion</Link>}
+                    {!isAuthenticated && <Link to="./login" className="login_btn">Iniciar Sesión</Link>}
                 </div>
+                
                 <div>
                     {!isAuthenticated && <Link to="./register" className="login_btn">Registrar Usuario</Link>}
                 </div>
 
                 <div>
+                    {isAuthenticated && <Link to="/homeUser" className="login_btn">Inicio</Link>}
+                </div>
+
+                <div>
+                    {isAuthenticated && <Link to="/userProfile" className="login_btn">Perfil</Link>}
+                </div>
+
+                <div>
                     {isAuthenticated && <Link to="/#" className="login_btn" onClick={logout}>Cerrar sesión</Link>}
                 </div>
+
             </nav>
     
             <footer className="footer">

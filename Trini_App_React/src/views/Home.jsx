@@ -1,4 +1,6 @@
 import Trino from '../components/Trino.jsx'
+import Header from '../components/Header.jsx'
+import Aside from './aside.jsx'
 import useAuth from '../hooks/useAuth.js'
 import useServer from '../hooks/useServer.js'
 import { useEffect, useState } from "react"
@@ -24,6 +26,8 @@ function Home() {
     }, [])
 
     return <>
+      <Header />
+      <Aside />
       <main className="main">
         {trinos && trinos.map(trino => <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} />)}
       </main>

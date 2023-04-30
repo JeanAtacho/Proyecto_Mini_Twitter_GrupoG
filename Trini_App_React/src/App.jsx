@@ -6,8 +6,6 @@ import Login from './views/login'
 import Register from './views/register';
 import Home from './views/Home';
 import { PrivateRoutes } from './components/PrivateRoutes';
-import Aside from './views/aside';
-import Header from './components/Header';
 import HomeUser from './views/HomeUser';
 import UserProfile from './views/UserProfile';
 
@@ -16,8 +14,6 @@ function App() {
   return (
     <>
       <div className="grid-container">
-        <Header />
-        <Aside />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/homeUser" element={<HomeUser />} />
