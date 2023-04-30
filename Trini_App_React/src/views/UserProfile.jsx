@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 import Trino from '../components/Trino.jsx'
 import Aside from "./aside.jsx"
+import HeaderProfile from "../components/HeaderProfile.jsx"
 
 
 import useAuth from '../hooks/useAuth.js'
@@ -10,11 +11,10 @@ import useServer from '../hooks/useServer.js'
 
 import TimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
-import HeaderProfile from "../components/HeaderProfile.jsx"
 TimeAgo.addDefaultLocale(es)
 const timeAgo = new TimeAgo('es-ES')
 
-function HomeUser() {
+function UserProfile() {
     const { get, post } = useServer()
     const {isAuthenticated, user} = useAuth()
     const [trinos, setTrinos] = useState([])
@@ -43,7 +43,6 @@ function HomeUser() {
 
     return <>
         <Aside />
-        
         <main className="main">
         <HeaderProfile />
             <section className="boxTrinar">
@@ -58,4 +57,4 @@ function HomeUser() {
       </>
 }
 
-export default HomeUser
+export default UserProfile
