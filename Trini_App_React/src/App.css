@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans&display=swap");
+
 * {
-    box-sizing:border-box;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -25,14 +26,53 @@ body {
     margin: 0;
 }
 
+.headerProfile {
+    position: relative;
+    border-radius: 8px;
+    grid-area: header;
+    background: linear-gradient(to bottom, #515BD4 50%, white 50%)
+}
+
+.new-trini-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+}
 
 .trinos_posted {
     background-color: #f5f5f5;
-    padding: 20px 20px 20px 20px;
+    padding: 20px 20px 0 20px;
 }
 
 .trinos_article {
     background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.feed-trini-details {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.trini-detais {
+    font-size: 1.5rem;
+}
+
+.trini-detais-info {
+    display: inline-block;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.trino_date {
+    font-family: "Public Sans", sans-serif;
+    padding-top: 5px;
+    font-size: 12px;
+    color: var(--Color-gris);
 }
 
 /*a partir de aca, se realiza la estructuracion del layout grid responsive para movil, tablet y pc*/
@@ -44,29 +84,41 @@ body {
         display: grid;
         gap: 1px;
         grid-template:
-            "sidebar header" 100px
+            "sidebar header" auto
             "sidebar main" 100%
             "sidebar main" 220px / 100px auto;
     }
+
+    .profile_pictureUser {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        padding: 7px 8px 5px 5px;
+        border: 2px solid var(--Color-azulMorado);
+    }
+
     header h1 {
         font-family: inter;
-        color: var(--Color-azulMorado); 
+        color: var(--Color-azulMorado);
         text-align: center;
         font-size: 1rem;
-        font-weight: bold; 
+        font-weight: bold;
     }
+
     h1:hover {
         color: var(--Color-azulTwitter);
     }
+
     .logo_view {
         height: 10%;
         padding-top: 30px;
     }
-   
+
     .login_btn a {
         text-decoration: none;
         color: white;
     }
+
     .login_btn {
         display: flex;
         justify-content: center;
@@ -85,13 +137,16 @@ body {
         text-decoration: none;
         color: white;
     }
+
     .login_btn:hover {
         background-color: var(--Color-azulTwitter);
     }
+
     .register_btn a {
         text-decoration: none;
         color: white;
     }
+
     .register_btn {
         display: inline-flex;
         justify-content: center;
@@ -109,47 +164,54 @@ body {
         font-family: 'Inter', sans-serif;
         font-size: 8px;
     }
+
     .register_btn:hover {
         background-color: var(--Color-azulTwitter);
     }
+
     h4 {
         font-size: 8px;
         color: var(--Color-azulMorado);
     }
+
     .developedBy {
         font-size: 7px;
         color: var(--Color-azulMorado);
     }
+
     .navyBird {
         height: 20px;
     }
-    
+
     .header {
         display: flex;
         justify-content: center;
         align-items: center;
         grid-area: header;
-        background-color: white;
+        background-color: #f5f5f5;
         top: 0;
     }
+
     .sidebar {
         display: flex;
         flex-wrap: wrap;
         place-content: space-between center;
         height: 100vh;
         position: fixed;
-        width: 19.9%;
+        width: 100px;
         grid-area: sidebar;
         background-color: white;
         top: 0;
         z-index: 5px;
     }
+
     .main {
         grid-area: main;
         background-color: #f5f5f5;
         overflow-y: scroll;
-        max-height: 100%;
+        max-height: 100vh;
     }
+
     .profile_picture {
         height: 30px;
         width: 30px;
@@ -158,65 +220,130 @@ body {
         border: 2px solid var(--Color-azulMorado);
         margin-top: 10px;
     }
+
     h2 {
         font-size: 12px;
         color: var(--Color-Bluegrey);
     }
+
     h3 {
         font-size: 9px;
         color: var(--Color-gris);
     }
-    .trino_phrase{
+
+    .trino_phrase {
         font-size: 10px;
         text-align: justify;
-        padding: 5px 5px 5px 5px;
+        padding: 15px 5px 5px 5px;
         margin-top: 10px;
     }
+
     .trino_image {
         margin-left: 5px;
         margin-right: 5px;
         margin-top: 10px;
     }
+
     .trino_image img {
         max-width: 100%;
         margin: 5px auto;
     }
+
     .trinos_posted {
         background-color: #f5f5f5;
-        padding: 20px 20px 20px 20px;
+        padding: 20px 20px 0 20px;
     }
-    
+
     .trinos_article {
         background-color: white;
     }
+
+    .trini-heart {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 65px;
+    }
+
+    .trini-img-punto {
+        padding-top: 10px;
+        float: right;
+        margin-right: -7px;
+        width: 1.5rem;
+        cursor: pointer;
+    }
+
+    .boxTrinar {
+        background-color: #F5F8FA;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .input-trino {
+        border: none;
+        width: 100%;
+        resize: none;
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 10px;
+        padding: 12px 16px;
+        border-radius: 16px;
+        background-color: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-trinar {
+        background-color: var(--Color-azulMorado);
+        color: #FFFFFF;
+        border: none;
+        border-radius: 9999px;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+    }
 }
+
 /*Vista para tablet*/
 @media (min-width: 600px) {
     .grid-container {
         grid-template:
-            "sidebar  header"  100px
-            "sidebar  main"    100%
-            "sidebar  main"    290px /
-            230px     auto;
+            "sidebar  header" auto
+            "sidebar  main" 100%
+            "sidebar  main" 290px /
+            230px auto;
     }
+
+    .profile_pictureUser {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        padding: 7px 8px 5px 5px;
+        border: 2px solid var(--Color-azulMorado);
+    }
+
     header h1 {
         font-family: inter;
-        color: var(--Color-azulMorado); 
+        color: var(--Color-azulMorado);
         text-align: center;
         font-size: 2rem;
-        font-weight: bold; 
+        font-weight: bold;
     }
+
     h1:hover {
         color: var(--Color-azulTwitter);
     }
+
     .logo_view {
-        height: 70px;
+        height: 90px;
     }
 
     .login_btn a {
         text-decoration: none;
         color: white;
     }
+
     .login_btn {
         display: flex;
         justify-content: center;
@@ -235,13 +362,16 @@ body {
         text-decoration: none;
         color: white;
     }
+
     .login_btn:hover {
         background-color: var(--Color-azulTwitter);
     }
+
     .register_btn a {
         text-decoration: none;
         color: white;
     }
+
     .register_btn {
         display: flex;
         justify-content: center;
@@ -258,21 +388,25 @@ body {
         font-family: 'Inter', sans-serif;
         font-size: 10px;
     }
+
     .register_btn:hover {
         background-color: var(--Color-azulTwitter);
     }
+
     h4 {
         font-size: 12px;
         color: var(--Color-azulMorado);
     }
+
     .developedBy {
         font-size: 9px;
         color: var(--Color-azulMorado);
     }
+
     .navyBird {
         height: 30px;
     }
-  
+
     .header {
         display: flex;
         justify-content: center;
@@ -281,24 +415,27 @@ body {
         background-color: #f5f5f5;
         top: 0;
     }
+
     .sidebar {
         display: flex;
         flex-wrap: wrap;
         place-content: space-between center;
         height: 100vh;
         position: fixed;
-        width: 19.9%;
+        width: 170px;
         grid-area: sidebar;
         background-color: white;
         top: 0;
         z-index: 5px;
     }
+
     .main {
         grid-area: main;
         background-color: #f5f5f5;
         overflow-y: scroll;
         max-height: 100vh;
     }
+
     .profile_picture {
         height: 50px;
         width: 50px;
@@ -306,26 +443,62 @@ body {
         padding: 7px 8px 5px 5px;
         border: 2px solid var(--Color-azulMorado);
     }
+
     h2 {
         font-size: 14px;
         color: var(--Color-Bluegrey);
     }
+
     h3 {
         font-size: 12px;
         color: var(--Color-gris);
     }
-    .trino_phrase{
+
+    .trino_phrase {
         font-size: 14px;
         text-align: justify;
-        padding: 5px 5px 5px 5px;
+        padding: 15px 5px 5px 5px;
     }
+
     .trino_image {
         margin-left: 5px;
         margin-right: 5px;
     }
+
     .trino_image img {
         max-width: 100%;
         margin: 5px auto;
+    }
+
+    .boxTrinar {
+        background-color: #F5F8FA;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .input-trino {
+        border: none;
+        width: 100%;
+        resize: none;
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 10px;
+        padding: 12px 16px;
+        border-radius: 16px;
+        background-color: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-trinar {
+        background-color: var(--Color-azulMorado);
+        color: #FFFFFF;
+        border: none;
+        border-radius: 9999px;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
     }
 }
 
@@ -334,21 +507,24 @@ body {
 @media (min-width: 900px) {
     .grid-container {
         grid-template:
-            "sidebar  main"  200px
-            "header   main"    100%
-            "sidebar  main"    155px /
-            350px     auto;
+            "sidebar  main" auto
+            "header   main" 100%
+            "sidebar  main" 155px /
+            350px auto;
     }
+
     header h1 {
         font-family: inter;
-        color: var(--Color-azulMorado); 
+        color: var(--Color-azulMorado);
         text-align: center;
         font-size: 2rem;
-        font-weight: bold; 
+        font-weight: bold;
     }
+
     h1:hover {
         color: var(--Color-azulTwitter);
     }
+
     .navBar_btn_home {
         display: flex;
         flex-direction: column;
@@ -356,14 +532,17 @@ body {
         width: 100%;
         justify-content: space-between;
     }
+
     .logo_view {
         padding-top: 20px;
         height: 100px;
     }
+
     .login_btn a {
         text-decoration: none;
         color: white;
     }
+
     .login_btn {
         display: flex;
         justify-content: center;
@@ -382,13 +561,16 @@ body {
         text-decoration: none;
         color: white;
     }
+
     .login_btn:hover {
         background-color: var(--Color-azulTwitter);
     }
+
     .register_btn a {
         text-decoration: none;
         color: white;
     }
+
     .register_btn {
         display: flex;
         justify-content: center;
@@ -405,55 +587,58 @@ body {
         font-family: 'Inter', sans-serif;
         font-size: 12px;
     }
+
     .register_btn:hover {
         background-color: var(--Color-azulTwitter);
     }
+
     h4 {
         font-size: 20px;
         color: var(--Color-azulMorado);
     }
+
     .developedBy {
         font-size: 10px;
         color: var(--Color-azulMorado);
     }
+
     .navyBird {
         height: 40px;
     }
+
     .footer {
         margin-bottom: 5px;
     }
+
     .header {
-        position: fixed;
-        width: 100%;
-        left: 140px;
+        display: flex;
         justify-content: center;
         align-items: center;
         grid-area: header;
         background-color: #f5f5f5;
         top: 0;
     }
+
     .sidebar {
         display: flex;
         flex-wrap: wrap;
         place-content: space-between center;
         height: 100vh;
         position: fixed;
-        width: 19.9%;
+        width: 230px;
         grid-area: sidebar;
         background-color: white;
         top: 0;
         z-index: 5px;
     }
+
     .main {
-        position: fixed;
-        width: 80%;
-        top: 42px;
-        left: 272px;
+        width: 100%;
         grid-area: main;
         background-color: #f5f5f5;
         overflow-y: scroll;
-        width: 80%;
     }
+
     .profile_picture {
         height: 50px;
         width: 50px;
@@ -461,13 +646,7 @@ body {
         padding: 7px 8px 5px 5px;
         border: 2px solid var(--Color-azulMorado);
     }
-    .headerProfile {
-        background-color: var(--Color-Bluegrey);
-        z-index: -20px;
-        height: 15vh;
-        padding-top: 40px;
-        margin-bottom: 70px;
-    }
+
     .profile_pictureUser {
         height: 100px;
         width: 100px;
@@ -475,33 +654,47 @@ body {
         padding: 7px 8px 5px 5px;
         border: 2px solid var(--Color-azulMorado);
     }
+
     .userTrini {
         font-size: 20px;
         color: var(--Color-Bluegrey);
     }
+
     .nameTrini {
         font-size: 16px;
         color: var(--Color-gris);
     }
+
     h2 {
         font-size: 16px;
         color: var(--Color-Bluegrey);
     }
+
     h3 {
         font-size: 14px;
         color: var(--Color-gris);
     }
-    .trini-handler{
+
+    .trini-handler {
         font-size: 10PX;
     }
-    .trino_phrase{
+
+    .trino_phrase {
         font-size: 14px;
         text-align: justify;
-        padding: 5px 5px 5px 5px;
+        padding: 15px 5px 5px 5px;
     }
+
     .trino_image img {
         width: 100vw;
         margin: 10px auto;
+    }
+
+    .trini-heart {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
     }
 
     /*CSS DEL FORMULARIO*/
@@ -514,6 +707,7 @@ body {
         justify-content: center;
         align-items: center;
     }
+
     .form {
         display: flex;
         flex-direction: column;
@@ -525,13 +719,16 @@ body {
         transition: all 0.3s ease;
         height: 100vh;
     }
+
     .form:hover {
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
     }
+
     .label {
         margin-bottom: 10px;
         align-items: left;
     }
+
     .input {
         padding: 10px;
         border: 1px solid #ccc;
@@ -540,10 +737,12 @@ body {
         margin-bottom: 20px;
         transition: all 0.3s ease;
     }
+
     .input:hover,
     .input:focus {
-    border-color: #555;
+        border-color: #555;
     }
+
     .submitBtn {
         padding: 10px 20px;
         background-color: var(--Color-azulMorado);
@@ -553,20 +752,23 @@ body {
         cursor: pointer;
         transition: all 0.3s ease;
     }
+
     .submitBtn:hover {
         background-color: var(--Color-azulTwitter);
     }
-    .logo_trini{
+
+    .logo_trini {
         height: 150px;
         margin-bottom: 100px;
     }
+
     .boxTrinar {
         background-color: #F5F8FA;
         padding: 20px;
         border-radius: 16px;
-      }
-      
-      .input-trino {
+    }
+
+    .input-trino {
         border: none;
         width: 100%;
         resize: none;
@@ -577,9 +779,9 @@ body {
         border-radius: 16px;
         background-color: #FFFFFF;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      
-      .btn-trinar {
+    }
+
+    .btn-trinar {
         background-color: var(--Color-azulMorado);
         color: #FFFFFF;
         border: none;
@@ -590,16 +792,17 @@ body {
         cursor: pointer;
         transition: background-color 0.2s ease-in-out;
     }
+
     .btn-trinar:hover {
-    background-color: var(--Color-azulTwitter);
+        background-color: var(--Color-azulTwitter);
     }
-    .trino_date {
-        font-family: "Public Sans", sans-serif;
-        padding-top: 10px;
-        margin-right: 20px;
-        text-align: right;
-        font-size: 12px;
-        color: var();
+
+    .trini-img-punto {
+        padding-top: 15px;
+        float: right;
+        margin-right: -15px;
+        width: 2rem;
+        cursor: pointer;
     }
 
     /*CSS DEL LIKE*/
@@ -609,44 +812,44 @@ body {
         display: flex;
         justify-content: space-between;
         padding: 1em 1.5em;
-      }
-      
-      .product__like {
+    }
+
+    .product__like {
         font-family: 'products';
-      }
-      
-      .product__like .icon-heart-empty {
+    }
+
+    .product__like .icon-heart-empty {
         color: gray;
-      }
-      
-      .product__like .icon-heart {
+    }
+
+    .product__like .icon-heart {
         color: tomato;
-      }
-      
-      .product__add-to-cart {
+    }
+
+    .product__add-to-cart {
         background-color: var(--add-to-cart-button);
         border-radius: 5px;
         color: white;
         margin: 0 .5em;
         padding: .5em .75em;
         text-decoration: none;
-      }
-      
-      .fixed-details {
+    }
+
+    .fixed-details {
         position: fixed;
         bottom: 0;
         background-color: var(--bg-body);
         border-top: 1px solid var(--border-color);
         padding: 1em;
         width: 100%;
-      }
-      
-      .icon-heart {
+    }
+
+    .icon-heart {
         color: tomato;
-      }
-      
-      .icon-heart-empty {
+    }
+
+    .icon-heart-empty {
         color: gray;
-      }
-      
+    }
+
 }

@@ -16,7 +16,7 @@ const timeAgo = new TimeAgo('es-ES')
 
 function HomeUser() {
     const { get, post } = useServer()
-    const {isAuthenticated, user} = useAuth()
+    const { isAuthenticated, user } = useAuth()
     const [trinos, setTrinos] = useState([])
 
     async function fetchTrinos() {
@@ -37,25 +37,27 @@ function HomeUser() {
         e.preventDefault()
 
         const dataForm = new FormData(e.target)
-        const { data: {data: trino} } = await post({ url: '/', body: dataForm, hasImage: true })
+        const { data: { data: trino } } = await post({ url: '/', body: dataForm, hasImage: true })
         setTrinos([trino, ...trinos])
     }
 
     return <>
-        <Aside />
-        
-        <main className="main">
         <HeaderProfile />
+        <Aside />
+
+        <main className="main">
             <section className="boxTrinar">
                 <form onSubmit={createTrino}>
                     <textarea name="text" className="input-trino" placeholder="Escribe tu trino aquí..."></textarea>
-                    <input type="file" name="image" id="" />
-                    <button className="btn-trinar" type="submit">Trinar</button>
+                    <div className="new-trini-actions">
+                        <input type="file" name="image" id="" />
+                        <button className="btn-trinar" type="submit">Trinar</button>
+                    </div>
                 </form>
             </section>
             {trinos && trinos.map(trino => <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} />)}
         </main>
-      </>
+    </>
 }
 
 export default HomeUser
