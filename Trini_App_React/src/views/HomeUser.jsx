@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react"
 
+import Trino from '../components/Trino.jsx'
+import Header from "../components/HeaderProfile.jsx"
+
+
 import useAuth from '../hooks/useAuth.js'
 import useServer from '../hooks/useServer.js'
 
-import Aside from "./aside.jsx"
-import Trino from '../components/Trino.jsx'
-import Header from "../components/Header.jsx"
 
 import TimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
-
+import Aside from "./aside.jsx"
 TimeAgo.addDefaultLocale(es)
 const timeAgo = new TimeAgo('es-ES')
 
@@ -41,9 +42,8 @@ function HomeUser() {
     }
 
     return <>
-        <Aside />
+        <Aside/>
         <main className="main">
-        <Header />
             <section className="boxTrinar">
                 <form onSubmit={createTrino}>
                     <textarea name="text" className="input-trino" placeholder="Escribe tu trino aquí..."></textarea>
