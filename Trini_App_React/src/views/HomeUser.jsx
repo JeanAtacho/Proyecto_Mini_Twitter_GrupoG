@@ -3,6 +3,7 @@ import Aside from './aside.jsx'
 import useAuth from '../hooks/useAuth.js'
 import useServer from '../hooks/useServer.js'
 import { useEffect, useState } from "react"
+import { useNavigate } from 'react-router-dom'
 
 import TimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
@@ -15,6 +16,8 @@ function HomeUser() {
     const [users, setUsers] = useState({})
     const [unmounted, setUnmounted] = useState(false)
     const { isAuthenticated, token } = useAuth()
+    const [authUser, setAuthUser] = useState({})
+    const navigate = useNavigate()
 
     async function createTrino(e) {
         e.preventDefault()
@@ -33,6 +36,10 @@ function HomeUser() {
             }
         })
     }
+    async function fetchSingleUser() {
+        const userData = await get({ url: '/user/', token: token })
+        setAuthUser(userData.data)
+    }
 
     async function fetchUserTrino(user_id) {
         try {
@@ -48,12 +55,13 @@ function HomeUser() {
     useEffect(() => {
         return () => {
             setUnmounted(true)
-            console.log("este es mi usuario" + token + isAuthenticated)
         }
     }, [])
 
     useEffect(() => {
+        if (isAuthenticated === false) return navigate('/')
         fetchTrinos()
+        fetchSingleUser()
     }, [])
 
     return <>
@@ -72,7 +80,7 @@ function HomeUser() {
             {trinos && trinos.map(trino => {
                 const user = users[trino.user_id]
                 if (user) {
-                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} />
+                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={authUser} isAuthenticated={isAuthenticated}/>
                 } else {
                     return null
                 }

@@ -1,6 +1,6 @@
 import { apiURL } from "../config"
 
-function Trino({ trino, user, timeAgo }) {
+function Trino({ trino, user, timeAgo, authUser, isAuthenticated }) {
 
     return <section className="trinos_posted">
         <article className="trinos_article">
@@ -12,7 +12,12 @@ function Trino({ trino, user, timeAgo }) {
                         <h3>{trino.email}</h3>
                         <p className="trino_date">Trinado {timeAgo.format(new Date(trino.created_at))}</p>
                     </div>
-                    <img src="src/image/puntos.svg" alt="" class="trini-img-punto" />
+                    {isAuthenticated && user.data.id === authUser.data.id && (
+                <>
+                   <img src="src/image/puntos.svg" alt="" class="trini-img-punto" />
+                </>
+            )}
+                    
                 </div>
                 <p className="trino_phrase">{trino.text}</p>
                 <figure className="trino_image">

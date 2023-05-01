@@ -3,7 +3,7 @@ import Aside from './aside.jsx'
 import useAuth from '../hooks/useAuth.js'
 import useServer from '../hooks/useServer.js'
 import { useEffect, useState } from "react"
-
+import { useNavigate } from 'react-router-dom'
 import HeaderProfile from "../components/HeaderProfile.jsx"
 
 import TimeAgo from 'javascript-time-ago'
@@ -17,6 +17,7 @@ function UserProfile() {
     const [user, setAuthUser] = useState({})
     const [unmounted, setUnmounted] = useState(false)
     const { isAuthenticated, token } = useAuth()
+    const navigate = useNavigate()
 
     async function createTrino(e) {
         e.preventDefault()
@@ -35,6 +36,7 @@ function UserProfile() {
     }
 
         useEffect(() => {
+            if (isAuthenticated === false) return navigate('/')
             fetchSingleUser()
     }, [])
 
@@ -42,7 +44,7 @@ function UserProfile() {
         try {
             const userTrinosData = await get({ url: '/user/' + user_id +'/tweets'})
             if (!unmounted) {
-                setTrinos(userTrinosData.data.data)
+                setTrinos(userTrinosData.data.data.reverse())
             }
         } catch (error) {
             console.error(error)
@@ -72,7 +74,7 @@ function UserProfile() {
             </section>
             {trinos && trinos.map(trino => {
                 if (user) {
-                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} />
+                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={user} isAuthenticated={isAuthenticated}/>
                 } else {
                     return null
                 }

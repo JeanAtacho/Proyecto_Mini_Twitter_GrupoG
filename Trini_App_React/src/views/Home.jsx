@@ -58,7 +58,8 @@ function Home() {
             {trinos && trinos.map(trino => {
                 const user = users[trino.user_id]
                 if (user) {
-                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} />
+                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={null}
+                    isAuthenticated={isAuthenticated} />
                 } else {
                     return null
                 }
