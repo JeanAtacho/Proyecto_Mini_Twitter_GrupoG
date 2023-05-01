@@ -1,37 +1,20 @@
-import { useEffect, useState } from "react"
-
 import Trino from '../components/Trino.jsx'
-import Header from "../components/HeaderProfile.jsx"
-
-
+import Aside from './aside.jsx'
 import useAuth from '../hooks/useAuth.js'
 import useServer from '../hooks/useServer.js'
-
+import { useEffect, useState } from "react"
 
 import TimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
-import Aside from "./aside.jsx"
 TimeAgo.addDefaultLocale(es)
 const timeAgo = new TimeAgo('es-ES')
 
 function HomeUser() {
     const { get, post } = useServer()
-    const { isAuthenticated, user } = useAuth()
     const [trinos, setTrinos] = useState([])
-
-    async function fetchTrinos() {
-        const trinosData = await get({ url: '/' })
-        setTrinos(trinosData.data.data)
-    }
-
-
-    useEffect(() => {
-        fetchTrinos()
-    }, [])
-
-    // useEffect(() => {
-    //     console.log({trinos})
-    // }, [trinos])
+    const [users, setUsers] = useState({})
+    const [unmounted, setUnmounted] = useState(false)
+    const { isAuthenticated, token } = useAuth()
 
     async function createTrino(e) {
         e.preventDefault()
@@ -41,10 +24,43 @@ function HomeUser() {
         setTrinos([trino, ...trinos])
     }
 
+    async function fetchTrinos() {
+        const trinosData = await get({ url: '/' })
+        setTrinos(trinosData.data.data)
+        trinosData.data.data.forEach(trino => {
+            if (!users[trino.user_id]) {
+                fetchUserTrino(trino.user_id)
+            }
+        })
+    }
+
+    async function fetchUserTrino(user_id) {
+        try {
+            const userData = await get({ url: '/user/' + user_id })
+            if (!unmounted) {
+                setUsers(prevState => ({ ...prevState, [user_id]: userData.data }))
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    useEffect(() => {
+        return () => {
+            setUnmounted(true)
+            console.log("este es mi usuario" + token + isAuthenticated)
+        }
+    }, [])
+
+    useEffect(() => {
+        fetchTrinos()
+    }, [])
+
     return <>
         <Aside />
+        
         <main className="main">
-            <section className="boxTrinar">
+        <section className="boxTrinar">
                 <form onSubmit={createTrino}>
                     <textarea name="text" className="input-trino" placeholder="Escribe tu trino aquí..."></textarea>
                     <div className="new-trini-actions">
@@ -53,7 +69,14 @@ function HomeUser() {
                     </div>
                 </form>
             </section>
-            {trinos && trinos.map(trino => <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} />)}
+            {trinos && trinos.map(trino => {
+                const user = users[trino.user_id]
+                if (user) {
+                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} />
+                } else {
+                    return null
+                }
+            })}
         </main>
     </>
 }

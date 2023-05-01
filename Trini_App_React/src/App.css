@@ -13,6 +13,7 @@
     --Color-Bluegrey: #283747;
     --Color-negro: #000000;
     --Color-gris: #6b6767;
+    --Color-BlancoMenta: #F5F8FA;
 }
 
 
@@ -28,9 +29,14 @@ body {
 
 .headerProfile {
     position: relative;
-    border-radius: 8px;
+    padding-bottom: 10px;
     grid-area: header;
-    background: linear-gradient(to bottom, #515BD4 50%, white 50%)
+    background: linear-gradient(to bottom, var(--Color-azulMorado) 40%, var(--Color-BlancoMenta) 35%);
+    border-radius: 16px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-top: 10px;
 }
 
 .new-trini-actions {
@@ -50,6 +56,8 @@ body {
     background-color: white;
     display: flex;
     justify-content: center;
+    border-radius: 16px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .feed-trini-details {
@@ -609,13 +617,16 @@ body {
     .footer {
         margin-bottom: 5px;
     }
-
     .header {
         display: flex;
+        position: fixed;
+        width: 100vw;
         justify-content: center;
         align-items: center;
         grid-area: header;
-        background-color: #f5f5f5;
+        background-color: white;
+        padding-bottom: 5px;
+        padding-left: 200px;
         top: 0;
     }
 
@@ -637,6 +648,14 @@ body {
         grid-area: main;
         background-color: #f5f5f5;
         overflow-y: scroll;
+        margin-top: 40px;
+    }
+    .mainPofile {
+        width: 100%;
+        grid-area: main;
+        background-color: #f5f5f5;
+        overflow-y: scroll;
+        margin-top: 40px;
     }
 
     .profile_picture {
@@ -646,13 +665,20 @@ body {
         padding: 7px 8px 5px 5px;
         border: 2px solid var(--Color-azulMorado);
     }
-
     .profile_pictureUser {
         height: 100px;
         width: 100px;
         border-radius: 50%;
         padding: 7px 8px 5px 5px;
         border: 2px solid var(--Color-azulMorado);
+    }
+    .profile_pictureUserLogged {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        padding: 7px 8px 5px 5px;
+        border: 8px solid var(--Color-BlancoMenta);
+        margin-top: 20px;
     }
 
     .userTrini {
@@ -676,7 +702,7 @@ body {
     }
 
     .trini-handler {
-        font-size: 10PX;
+        font-size: 10px;
     }
 
     .trino_phrase {
@@ -763,9 +789,13 @@ body {
     }
 
     .boxTrinar {
-        background-color: #F5F8FA;
+        background-color: var(--Color-BlancoMenta);
         padding: 20px;
         border-radius: 16px;
+        margin-left: 19px;
+        margin-right: 19px;
+        margin-top: 0;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .input-trino {
@@ -785,7 +815,7 @@ body {
         background-color: var(--Color-azulMorado);
         color: #FFFFFF;
         border: none;
-        border-radius: 9999px;
+        border-radius: 10px;
         font-size: 16px;
         font-weight: bold;
         padding: 10px 20px;
