@@ -36,7 +36,7 @@ function UserProfile() {
     }
     const handleDeleteTrino = () => {
         fetchSingleUser(true)
-      };
+    };
 
         useEffect(() => {
             if (isAuthenticated === false) return navigate('/')
