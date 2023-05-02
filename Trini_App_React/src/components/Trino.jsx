@@ -15,7 +15,7 @@ function Trino({ trino, user, timeAgo, authUser, isAuthenticated, handleDeleteTr
                     </div>
                     {isAuthenticated && user.data.id === authUser.data.id && (
                 <>
-                <DeleteTrino trino={trino} handleDeleteTrino={handleDeleteTrino}/>
+                   <DeleteTrino trino={trino} handleDeleteTrino={handleDeleteTrino}/>
                 </>
             )}
                     
