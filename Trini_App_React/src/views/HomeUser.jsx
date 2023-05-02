@@ -27,6 +27,10 @@ function HomeUser() {
         setTrinos([trino, ...trinos])
     }
 
+    const handleDeleteTrino = () => {
+        fetchTrinos()
+    }
+
     async function fetchTrinos() {
         const trinosData = await get({ url: '/' })
         setTrinos(trinosData.data.data)
@@ -40,6 +44,7 @@ function HomeUser() {
         const userData = await get({ url: '/user/', token: token })
         setAuthUser(userData.data)
     }
+
 
     async function fetchUserTrino(user_id) {
         try {
@@ -80,7 +85,7 @@ function HomeUser() {
             {trinos && trinos.map(trino => {
                 const user = users[trino.user_id]
                 if (user) {
-                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={authUser} isAuthenticated={isAuthenticated}/>
+                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={authUser} isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino}/>
                 } else {
                     return null
                 }

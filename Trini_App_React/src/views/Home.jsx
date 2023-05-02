@@ -19,6 +19,10 @@ function Home() {
     const [unmounted, setUnmounted] = useState(false)
     const { isAuthenticated, userAuth } = useAuth()
 
+    const handleDeleteTrino = () => {
+        fetchTrinos()
+    }
+
     async function fetchTrinos() {
         const trinosData = await get({ url: '/' })
         setTrinos(trinosData.data.data)
@@ -59,7 +63,7 @@ function Home() {
                 const user = users[trino.user_id]
                 if (user) {
                     return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={null}
-                    isAuthenticated={isAuthenticated} />
+                    isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino}/>
                 } else {
                     return null
                 }

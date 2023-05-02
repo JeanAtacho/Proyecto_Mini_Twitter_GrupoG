@@ -1,6 +1,7 @@
 import { apiURL } from "../config"
+import DeleteTrino from "./DeleteTrino"
 
-function Trino({ trino, user, timeAgo, authUser, isAuthenticated }) {
+function Trino({ trino, user, timeAgo, authUser, isAuthenticated, handleDeleteTrino}) {
 
     return <section className="trinos_posted">
         <article className="trinos_article">
@@ -14,7 +15,7 @@ function Trino({ trino, user, timeAgo, authUser, isAuthenticated }) {
                     </div>
                     {isAuthenticated && user.data.id === authUser.data.id && (
                 <>
-                   <img src="src/image/puntos.svg" alt="" class="trini-img-punto" />
+                   <DeleteTrino trino={trino} handleDeleteTrino={handleDeleteTrino}/>
                 </>
             )}
                     
@@ -30,10 +31,5 @@ function Trino({ trino, user, timeAgo, authUser, isAuthenticated }) {
         </article>
     </section>
 }
-
-Trino.defaultProps = {
-    user: { data: {name: "Unknown author" }},
-    timeAgo: null,
-  };
 
 export default Trino

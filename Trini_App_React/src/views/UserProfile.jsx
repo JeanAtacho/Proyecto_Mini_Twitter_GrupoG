@@ -27,23 +27,29 @@ function UserProfile() {
         setTrinos([trino, ...trinos])
     }
 
-    async function fetchSingleUser() {
+    async function fetchSingleUser(isBorrado) {
         const userData = await get({ url: '/user/', token: token })
         setAuthUser(userData.data)
             if (userData.data) {
-                fetchUserTrinos(userData.data.data.id)
+                fetchUserTrinos(userData.data.data.id, isBorrado)
             }
     }
+    const handleDeleteTrino = () => {
+        fetchSingleUser(true)
+      };
 
         useEffect(() => {
             if (isAuthenticated === false) return navigate('/')
-            fetchSingleUser()
+            fetchSingleUser(false)
     }, [])
 
-    async function fetchUserTrinos(user_id) {
+    async function fetchUserTrinos(user_id, isBorrado) {
         try {
             const userTrinosData = await get({ url: '/user/' + user_id +'/tweets'})
             if (!unmounted) {
+                setTrinos(userTrinosData.data.data.reverse())
+            }
+            if(isBorrado){
                 setTrinos(userTrinosData.data.data.reverse())
             }
         } catch (error) {
@@ -74,7 +80,7 @@ function UserProfile() {
             </section>
             {trinos && trinos.map(trino => {
                 if (user) {
-                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={user} isAuthenticated={isAuthenticated}/>
+                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={user} isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino}/>
                 } else {
                     return null
                 }

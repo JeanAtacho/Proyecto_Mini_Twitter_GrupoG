@@ -828,12 +828,110 @@ body {
     }
 
     .trini-img-punto {
-        padding-top: 15px;
         float: right;
-        margin-right: -15px;
+        margin-top: -10px;
+        margin-right: 1px;
         width: 2rem;
         cursor: pointer;
     }
+    .trini-img-punto-btn {
+        height: 0.5;
+        float: right;
+        margin-top: 50px;
+        margin-right: 15px;
+        width: 2rem;
+        cursor: pointer;
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    /*CSS PARA EL MODAL*/
+
+    .modal {
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+      
+      .modal-content {
+        background-color: #fefefe;
+        border: 1px solid #888;
+        border-radius: 5px;
+        width: 300px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+      }
+      
+      .modal-content p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: var(--Color-purpleBlue);
+      }
+      
+      .modal-buttons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .modalBtn-Si {
+        text-align: center;
+        margin-right: 10px;
+        width: 2.7rem;
+      }
+
+      .modalBtn-Si:hover {
+        background-color: var(--Color-azulTwitter);
+        color: white;
+      }
+
+      .modalBtn-No {
+        text-align: center;
+        width: 2.7rem;
+        margin-left: 10px;
+      }
+      .modalBtn-No:hover {
+        background-color: var(--Color-azulTwitter);
+        color: white;
+      }
+      
+      
+      .modal-buttons button {
+        background-color: var(--Color-azulMorado);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+      }
+      
+      .modal-buttons button:hover {
+        opacity: 0.8;
+      }
+      
+      .trini-img-punto {
+        width: 24px;
+        height: 24px;
+      }
+
+
+
+
+
+
+
 
     /*CSS DEL LIKE*/
 
