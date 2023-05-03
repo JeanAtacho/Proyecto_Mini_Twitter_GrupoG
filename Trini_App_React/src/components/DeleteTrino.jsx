@@ -4,16 +4,15 @@ import { useState } from 'react';
 
 function DeleteTrino({trino, handleDeleteTrino}) {
 
-    const { del } = useServer()
-    const { isAuthenticated, token } = useAuth()
+    const { delete: destroy } = useServer()
+    const { isAuthenticated } = useAuth()
     const [showModal, setShowModal] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault()
-        if(isAuthenticated){
-            const { data } = await del({ url: '/tweet/' + trino.id, token: token})
-            handleDeleteTrino()
-        }
+        
+        const { data } = await destroy({ url: '/tweet/' + trino.id})
+        handleDeleteTrino()
     }
 
     const handleDeleteClick = e => {

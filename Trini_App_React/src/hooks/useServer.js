@@ -6,11 +6,13 @@ function useServer() {
   const { token, setUser } = useAuth()
 
   const handleResponse = ({ data, loading, error, url }) => {
+    console.log({ usr: data.data })
+
     if (data?.status === 'ok' && url === '/login') {
       setUser({token: data.data})
     }
 
-    if (data?.data?.email && url === '/login') {
+    if (data?.data?.email) {
       setUser({ user: data.data })
     }
 
@@ -28,8 +30,8 @@ function useServer() {
   return {
     get: ({ url }) => httpService({ method: 'GET', url, token }).then(handleResponse),
     post: ({ url, body, hasImage }) => httpService({ method: 'POST', url, token, body, hasImage }).then(handleResponse),
-    put: ({ url, body }) => httpService({ method: 'PUT', url, token, body }).then(handleResponse),
-    del: ({ url }) => httpService({ method: 'DELETE', url, token })
+    put: ({ url, body, hasImage }) => httpService({ method: 'PUT', url, token, body, hasImage }).then(handleResponse),
+    delete: ({ url }) => httpService({ method: 'DELETE', url, token })
   }
 }
 

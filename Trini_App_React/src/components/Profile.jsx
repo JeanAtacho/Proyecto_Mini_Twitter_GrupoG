@@ -1,4 +1,3 @@
-import { apiURL } from "../config"
 import Trino from "./Trino"
 
 function Profile() {

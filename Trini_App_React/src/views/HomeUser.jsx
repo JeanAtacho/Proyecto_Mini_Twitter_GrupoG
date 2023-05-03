@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 import TimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
+
 TimeAgo.addDefaultLocale(es)
 const timeAgo = new TimeAgo('es-ES')
 

@@ -1,7 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import useServer from '../hooks/useServer.js'
+import useAuth from '../hooks/useAuth.js'
+import { useEffect } from 'react'
 
 function Login() {
+  const { token } = useAuth()
   const { post, get } = useServer()
   const navigate = useNavigate()
 
@@ -9,10 +12,18 @@ function Login() {
     e.preventDefault()
 
     const credentials = Object.fromEntries(new FormData(e.target))
-    const { data } = await post({ url: '/login', body: credentials })
-    console.log(credentials)
-    if (data.status == 'ok') return navigate('/homeUser')
+    await post({ url: '/login', body: credentials })
   }
+  
+  useEffect(() => {
+    if (!token) return
+
+    (async () => {
+      const { data } = await get({ url: '/user/' })
+      console.log(data)
+      if (data.status == 'ok') return navigate('/homeUser')
+    })()
+  }, [token])
 
   return (
       <div main className="allForms">

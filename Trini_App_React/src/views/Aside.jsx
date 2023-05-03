@@ -23,7 +23,7 @@ function Aside() {
                 </div>
 
                 <div>
-                    {isAuthenticated && <Link to="/userProfile" className="login_btn">Perfil</Link>}
+                    {isAuthenticated && <Link to="/profile" className="login_btn">Perfil</Link>}
                 </div>
 
                 <div>

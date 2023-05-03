@@ -19,10 +19,10 @@ function App() {
           <Route path="/homeUser" element={<HomeUser />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/userProfile" element={<UserProfile />} />
+          
 
           <Route element={<PrivateRoutes />}>
-            <Route path="/userProfile" />
+            <Route path="/profile" element={<UserProfile />} />
             <Route path="/homeUser" />
           </Route>
         </Routes>
