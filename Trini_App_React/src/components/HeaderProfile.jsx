@@ -1,18 +1,30 @@
-function HeaderProfile({ user }) {
-    return (
+import EditProfile from "./EditProfile";
+import { apiURL } from "../config"
+
+function HeaderProfile({ user, handleEditClick }) {
+    return (<>
+        <EditProfile handleEditClick={handleEditClick}/>
         <header className="headerProfile">
-            <img
+            {user.data && user.data.avatar != null && (<>
+                <img
+                className="profile_pictureUserLogged"
+                src={`${apiURL}/uploads/${user.data.avatar}`}
+            />
+            </>) }
+            {user.data && user.data.avatar === null && (<>
+                <img
                 className="profile_pictureUserLogged"
                 src="src/image/trini_purple.png"
-                alt=""
             />
+            </>) }
             {user && user.data && (
                 <>
-                    <h2 className="userTrini">{user.data.email}</h2>
+                    <h2 className="userTrini">{user.data.name}</h2>
                     <h3 className="nameTrini">{user.data.email}</h3>
                 </>
             )}
         </header>
+        </>
     );
 }
 

@@ -22,7 +22,8 @@ function App() {
           <Route path="/userProfile" element={<UserProfile />} />
 
           <Route element={<PrivateRoutes />}>
-            <Route path="/profile" />
+            <Route path="/userProfile" />
+            <Route path="/homeUser" />
           </Route>
         </Routes>
       </div>
