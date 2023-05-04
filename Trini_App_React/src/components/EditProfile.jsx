@@ -3,7 +3,7 @@ import useServer from '../hooks/useServer.js'
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 
-function EditProfile({handleEditClick}) {
+function EditProfile({ handleEditClick }) {
     const { user } = useAuth()
     const { put } = useServer()
     const [showModal, setShowModal] = useState(false);
@@ -12,13 +12,13 @@ function EditProfile({handleEditClick}) {
     const [password, setPassword] = useState('')
     const [file, setFile] = useState('')
     const fileRef = useRef()
-    
+
     useEffect(() => {
         const savedData = getFromLocalStorage('user');
         if (name === savedData.user.name) return
         const timer = setTimeout(async () => {
             const credentials = { name, email }
-            const { data } = await put({ url: '/user/', body: credentials})
+            const { data } = await put({ url: '/user/', body: credentials })
             handleEditClick();
             if (data.status === 'ok') toast.success('Nombre o Email han sido actualizados')
         }, 3000);
@@ -30,7 +30,7 @@ function EditProfile({handleEditClick}) {
 
         const timer = setTimeout(async () => {
             const credentials = { password }
-            const { data } = await put({ url: '/user/password', body: credentials})
+            const { data } = await put({ url: '/user/password', body: credentials })
             if (data.status === 'ok') toast.success('Contraseña ha sido actualizada')
         }, 2000);
         return () => clearTimeout(timer);
@@ -41,7 +41,7 @@ function EditProfile({handleEditClick}) {
 
         (async () => {
             const formData = new FormData(document.forms[0]);
-            const { data } = await put({ url: '/user/avatar', body: formData, hasImage: true})
+            const { data } = await put({ url: '/user/avatar', body: formData, hasImage: true })
             handleEditClick();
             if (data.status === 'ok') toast.success('Avatar ha sido actualizado')
         })()
@@ -49,13 +49,13 @@ function EditProfile({handleEditClick}) {
 
     const getFromLocalStorage = (key) => {
         try {
-          const data = localStorage.getItem(key);
-          return data ? JSON.parse(data) : null;
+            const data = localStorage.getItem(key);
+            return data ? JSON.parse(data) : null;
         } catch (error) {
-          console.error('Error al leer de localStorage:', error);
-          return null;
+            console.error('Error al leer de localStorage:', error);
+            return null;
         }
-      };
+    };
 
     const handleEditProfile = e => {
         e.preventDefault();
@@ -63,9 +63,9 @@ function EditProfile({handleEditClick}) {
     };
 
     const handleClose = async e => {
-    e.preventDefault()
-    setShowModal(false);
-    handleEditClick()
+        e.preventDefault()
+        setShowModal(false);
+        handleEditClick()
     }
 
 
@@ -85,7 +85,7 @@ function EditProfile({handleEditClick}) {
                                 <label htmlFor="avatar" className="label">Avatar</label>
                             </div>
                             <div className="inputContainer">
-                                <input type="file" name="avatar" id="avatar" ref={fileRef} onChange={e => setFile(e.target.value)} accept="image/*" className="input" />
+                                <input type="file" name="avatar" id="avatar" ref={fileRef} onChange={e => setFile(e.target.files[0])} accept="image/*" className="input" />
                             </div>
 
                             <div className="inputContainer">
@@ -111,12 +111,12 @@ function EditProfile({handleEditClick}) {
                             <div className="modal-buttons">
                                 <button className='modalBtn-cerrar' onClick={handleClose}>Cerrar</button>
                             </div>
-                            
+
                         </form>
                     </div>
                 </div>
             </div>
-)}
+        )}
     </>
 }
 

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import TimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
 import { toast } from 'react-toastify';
-
+import { useRef } from 'react'
 TimeAgo.addDefaultLocale(es)
 const timeAgo = new TimeAgo('es-ES')
 
@@ -21,41 +21,55 @@ function HomeUser() {
     const [authUser, setAuthUser] = useState({})
     const navigate = useNavigate()
     const [trinoText, setTrinoText] = useState('')
+    const [file, setFile] = useState(null);
+    const fileRef = useRef();
 
     const likeTrinoHandler = async (id) => {
-    const response = await post({url:`/tweet/${id}/like`})
-    fetchTrinos()
+        const response = await post({ url: `/tweet/${id}/like` })
+        fetchTrinos()
     }
 
     async function createTrino(e) {
         e.preventDefault()
         const dataForm = new FormData(e.target)
-        if(!isFormDataEmpty(dataForm)){
-        const { data: { data: trino } } = await post({ url: '/', body: dataForm, hasImage: true })
-        setTrinos([trino, ...trinos])
-        setTrinoText('')
-        if (trino) toast.success('Tu Trino ha sido publicado :)')
+        if (isFormDataValid(dataForm)) {
+            const { data: { data: trino } } = await post({ url: '/', body: dataForm, hasImage: true })
+            setTrinos([trino, ...trinos])
+            setTrinoText('')
+            fileRef.current.value = '';
+            setFile(null)
+            if (trino) toast.success('Tu Trino ha sido publicado :)')
         }
     }
 
     //Validacion para que detecte si existe un arhivo y/o texto valido para hacer un trino.
-    const isFormDataEmpty = (formData) => {
-        let isEmpty = true;
-      
+    const isFormDataValid = (formData) => {
+        let hasText = false;
+        let hasImage = false;
+
         for (let [key, value] of formData.entries()) {
-          if (value instanceof File) {
-            if (value.size > 0) {
-              isEmpty = false;
-              break;
+            if (value instanceof File) {
+                if (value.size > 0) {
+                    hasImage = true;
+                }
+            } else if (value && value.toString().trim() !== '') {
+                hasText = true;
             }
-          } else if (value && value.toString().trim() !== '') {
-            isEmpty = false;
-            break;
-          }
         }
-      
-        return isEmpty;
-      };
+
+        // Si hay una imagen sin texto, no es válido
+        if (hasImage && !hasText) {
+            return false;
+        }
+
+        // Si no hay texto ni imagen, no es válido
+        if (!hasText && !hasImage) {
+            return false;
+        }
+
+        return true;
+    };
+
 
     const handleDeleteTrino = () => {
         fetchTrinos()
@@ -97,16 +111,17 @@ function HomeUser() {
 
     return <>
         <Aside />
-        
+
         <main className="main">
-        <section className="boxTrinar">
+            <section className="boxTrinar">
                 <form onSubmit={createTrino}>
                     <textarea name="text" className="input-trino" placeholder="Escribe tu trino aquí..." value={trinoText} onChange={(e) => setTrinoText(e.target.value)}></textarea>
                     <div className="new-trini-actions">
                         <label htmlFor="image-upload">
                             <i className="fa fa-upload"></i>
                         </label>
-                        <input type="file" name="image" id="image-upload" />
+                        <input type="file" name="image" id="image-upload" ref={fileRef}
+                            onChange={e => setFile(e.target.files[0])} />
                         <button className="btn-trinar" type="submit">Trinar</button>
                     </div>
                 </form>
@@ -114,7 +129,7 @@ function HomeUser() {
             {trinos && trinos.map(trino => {
                 const user = users[trino.user_id]
                 if (user) {
-                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={authUser} isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino} likeTrinoHandler={likeTrinoHandler}/>
+                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={authUser} isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino} likeTrinoHandler={likeTrinoHandler} />
                 } else {
                     return null
                 }
