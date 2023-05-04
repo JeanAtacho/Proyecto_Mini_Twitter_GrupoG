@@ -18,8 +18,8 @@ function Trino({ trino, user, timeAgo, authUser, isAuthenticated, handleDeleteTr
                         <h2>{user.data.name}</h2>
                         <h3>{trino.email}</h3>
                         
-                    </div>
                     <p className="trino_date">Trinado {timeAgo.format(new Date(trino.created_at))}</p>
+                    </div>
                     {isAuthenticated && user.data.id === authUser.data.id && (
                 <>
                 <DeleteTrino trino={trino} handleDeleteTrino={handleDeleteTrino}/>

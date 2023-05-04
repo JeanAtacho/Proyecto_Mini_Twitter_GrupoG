@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Public+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
 
 * {
     box-sizing: border-box;
@@ -18,7 +18,7 @@
 
 
 body {
-    font-family: "Public Sans", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
     background-color: #f5f5f5;
     padding: 5px 5px 5px 5px;
@@ -28,24 +28,21 @@ body {
     overflow: hidden;
 }
 
-.headerProfile {
-    position: relative;
-    padding-bottom: 5px;
     grid-area: header;
-    background: linear-gradient(to bottom, var(--Color-azulMorado) 40%, var(--Color-BlancoMenta) 35%);
-    border-radius: 16px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-left: 18px;
-    margin-right: 35px;
-    margin-top: 10px;
-}
-
 .new-trini-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 60px;
     width: 100%;
+}
+
+.main {
+    width: 100%;
+    grid-area: main;
+    background-color: #f5f5f5;
+    overflow-y: scroll;
+    max-height: 100vh;
 }
 
 .trinos_posted {
@@ -77,56 +74,41 @@ body {
 }
 
 .trino_date {
-    font-family: "Public Sans", sans-serif;
+    font-family: 'Roboto', sans-serif;
     padding-top: 5px;
     font-size: 12px;
     color: var(--Color-gris);
-    text-align: right;
 }
 
 input[type="file"] {
     display: none;
 }
-.fa-upload {
-    color: var(--Color-azulMorado);
-    font-size: 2rem;
-    margin-left: 20px;
-}
+
 .fa-upload:hover {
     color: var(--Color-azulTwitter);
 }
 
-.editeProfile-btn {
-    position: absolute;
-    top: 20px;
-    right: 10px;
-    transform: translate(-50%, 50%);
-    z-index: 1;
-    background-color: var(--Color-purpleBlue);
-    color: white;
-    border-radius: 20px;
-    border: 1px solid var(--Color-purpleBlue);
-    padding: 8px 16px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-}
 .editeProfile-btn:hover {
     background-color: var(--Color-azulTwitter);
     border: 1px solid var(--Color-azulTwitter);
     cursor: pointer;
 }
+
 .fa-user-pen {
     margin-right: 8px;
 }
-.formEditProfile {
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 100px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    height: 70vh;
 
 }
 
@@ -153,10 +135,10 @@ input[type="file"] {
     }
 
     header h1 {
-        font-family: inter;
+        font-family: 'Roboto', sans-serif;
         color: var(--Color-azulMorado);
         text-align: center;
-        font-size: 1rem;
+        font-size: 1.3rem;
         font-weight: bold;
     }
 
@@ -165,13 +147,8 @@ input[type="file"] {
     }
 
     .logo_view {
-        height: 10%;
+        height: 12%;
         padding-top: 30px;
-    }
-
-    .login_btn a {
-        text-decoration: none;
-        color: white;
     }
 
     .login_btn {
@@ -187,8 +164,9 @@ input[type="file"] {
         background-color: var(--Color-azulMorado);
         border-radius: 6px;
         cursor: pointer;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 9px;
+        font-weight: 500;
         text-decoration: none;
         color: white;
     }
@@ -216,7 +194,7 @@ input[type="file"] {
         background-color: var(--Color-azulMorado);
         border-radius: 6px;
         cursor: pointer;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 8px;
     }
 
@@ -243,7 +221,8 @@ input[type="file"] {
         justify-content: center;
         align-items: center;
         grid-area: header;
-        background-color: #f5f5f5;
+        padding: 10px 0 10px 0;
+        background-color: white;
         top: 0;
     }
 
@@ -257,21 +236,22 @@ input[type="file"] {
         grid-area: sidebar;
         background-color: white;
         top: 0;
-        z-index: 5px;
     }
 
-    .main {
-        grid-area: main;
-        background-color: #f5f5f5;
-        overflow-y: scroll;
-        max-height: 100vh;
+    .profile_pictureUserLogged {
+        height: 90px;
+        width: 90px;
+        border-radius: 50%;
+        padding: 7px 8px 5px 5px;
+        border: 8px solid var(--Color-BlancoMenta);
+        margin-top: 20px;
     }
 
     .profile_picture {
         height: 30px;
         width: 30px;
         border-radius: 50%;
-        padding: 7px 8px 5px 5px;
+        padding: 4px 4px 4px 4px;
         border: 2px solid var(--Color-azulMorado);
         margin-top: 10px;
     }
@@ -282,16 +262,14 @@ input[type="file"] {
     }
 
     h3 {
-        font-size: 9px;
+        font-size: 11px;
         color: var(--Color-gris);
     }
 
-    .trino_phrase {
-        font-size: 10px;
-        text-align: justify;
-        padding: 15px 5px 5px 5px;
-        margin-top: 10px;
+    .trini-detais-info p {
+        font-size: 0.6rem;
     }
+
 
     .trino_image {
         margin-left: 5px;
@@ -304,15 +282,6 @@ input[type="file"] {
         margin: 5px auto;
     }
 
-    .trinos_posted {
-        background-color: #f5f5f5;
-        padding: 20px 20px 0 20px;
-    }
-
-    .trinos_article {
-        background-color: white;
-    }
-
     .trini-heart {
         display: block;
         margin-left: auto;
@@ -323,24 +292,42 @@ input[type="file"] {
     .trini-img-punto {
         padding-top: 10px;
         float: right;
-        margin-right: -7px;
+        margin-right: 9px;
         width: 1.5rem;
         cursor: pointer;
     }
 
+    .trini-img-punto-btn {
+        float: right;
+        margin-right: -10px;
+        width: 2rem;
+        cursor: pointer;
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    .trino_phrase {
+        font-size: 13px;
+        text-align: justify;
+        padding: 15px 5px 5px 5px;
+    }
+
     .boxTrinar {
-        background-color: #F5F8FA;
-        padding: 20px;
+        background-color: var(--Color-BlancoMenta);
+        padding: 20px 20px 0 20px;
         border-radius: 16px;
+        margin-left: 19px;
+        margin-right: 19px;
+        margin-top: 15px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .input-trino {
         border: none;
         width: 100%;
         resize: none;
-        font-size: 18px;
-        line-height: 24px;
-        margin-bottom: 10px;
+        font-size: 15px;
+        line-height: 20px;
         padding: 12px 16px;
         border-radius: 16px;
         background-color: #FFFFFF;
@@ -352,22 +339,173 @@ input[type="file"] {
         color: #FFFFFF;
         border: none;
         border-radius: 9999px;
-        font-size: 10px;
+        font-size: 9px;
         font-weight: bold;
         padding: 10px 20px;
         cursor: pointer;
         transition: background-color 0.2s ease-in-out;
     }
+
+    .likeTrino {
+        display: contents;
+        position: relative;
+        font-size: 15px;
+    }
+
+    .icon-heart {
+        color: var(--Color-purpleBlue);
+
+    }
+
+    .fa-upload {
+        color: var(--Color-azulMorado);
+        font-size: 1.7rem;
+        margin-left: 10px;
+    }
+
+    .headerProfile {
+        position: relative;
+        padding-bottom: 5px;
+        grid-area: header;
+        background: linear-gradient(to bottom, var(--Color-azulMorado) 40%, var(--Color-BlancoMenta) 35%);
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+    }
+
+    .editeProfile-btn {
+        position: absolute;
+        top: 20px;
+        right: -36px;
+        transform: translate(-50%, 50%);
+        z-index: 1;
+        background-color: var(--Color-purpleBlue);
+        color: white;
+        border-radius: 20px;
+        border: 1px solid var(--Color-purpleBlue);
+        padding: 4px 14px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .editeProfile-btn i {
+        font-size: 8px;
+    }
+
+    .allForms {
+        background-color: var(--Color-gris);
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        height: 100vh;
+    }
+
+    .logo_trini {
+        height: 90px;
+        margin-bottom: 60px;
+    }
+
+    .submitBtn {
+        padding: 10px 20px;
+        background-color: var(--Color-azulMorado);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .formEditProfile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        height: 50vh;
+
+    }
+
+    .label {
+        margin-bottom: 10px;
+        align-items: left;
+    }
+
+    .input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 200px;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        border: 1px solid #888;
+        border-radius: 5px;
+        width: 250px;
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 26px;
+    }
+
+    .modal-content p {
+        font-size: 12px;
+        color: var(--Color-purpleBlue);
+    }
+
+    .modal-buttons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .modal-buttons button {
+        background-color: var(--Color-azulMorado);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .modalBtn-Si {
+        text-align: center;
+        margin-right: 10px;
+        width: 2.3rem;
+    }
+
+    .modalBtn-No {
+        text-align: center;
+        margin-left: 10px;
+    }
+
 }
 
 /*Vista para tablet*/
 @media (min-width: 600px) {
     .grid-container {
         grid-template:
-            "sidebar  header" auto
-            "sidebar  main" 100%
-            "sidebar  main" 290px /
-            230px auto;
+            "sidebar header" auto
+            "sidebar main" 100%
+            "sidebar main" 220px / 170px auto;
     }
 
     .profile_pictureUser {
@@ -379,10 +517,10 @@ input[type="file"] {
     }
 
     header h1 {
-        font-family: inter;
+        font-family: 'Roboto', sans-serif;
         color: var(--Color-azulMorado);
         text-align: center;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: bold;
     }
 
@@ -394,32 +532,12 @@ input[type="file"] {
         height: 90px;
     }
 
-    .login_btn a {
-        text-decoration: none;
-        color: white;
-    }
-
     .login_btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         height: 30px;
         width: 110px;
-        margin: 10px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        border: none;
-        background-color: var(--Color-azulMorado);
-        border-radius: 6px;
-        cursor: pointer;
-        font-family: 'Inter', sans-serif;
         font-size: 12px;
-        text-decoration: none;
-        color: white;
-    }
-
-    .login_btn:hover {
-        background-color: var(--Color-azulTwitter);
+        font-weight: 500;
+        margin: 18px;
     }
 
     .register_btn a {
@@ -440,7 +558,7 @@ input[type="file"] {
         background-color: var(--Color-azulMorado);
         border-radius: 6px;
         cursor: pointer;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 10px;
     }
 
@@ -462,98 +580,181 @@ input[type="file"] {
         height: 30px;
     }
 
-    .header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        grid-area: header;
-        background-color: #f5f5f5;
-        top: 0;
-    }
-
     .sidebar {
-        display: flex;
-        flex-wrap: wrap;
-        place-content: space-between center;
-        height: 100vh;
-        position: fixed;
         width: 170px;
-        grid-area: sidebar;
-        background-color: white;
-        top: 0;
-        z-index: 5px;
     }
 
-    .main {
-        grid-area: main;
-        background-color: #f5f5f5;
-        overflow-y: scroll;
-        max-height: 100vh;
+    .profile_pictureUserLogged {
+        height: 120px;
+        width: 120px;
+        ;
     }
 
     .profile_picture {
         height: 50px;
         width: 50px;
-        border-radius: 50%;
-        padding: 7px 8px 5px 5px;
-        border: 2px solid var(--Color-azulMorado);
+        padding: 1px 6px 5px 5px;
     }
 
     h2 {
         font-size: 14px;
-        color: var(--Color-Bluegrey);
     }
 
     h3 {
         font-size: 12px;
-        color: var(--Color-gris);
     }
 
     .trino_phrase {
-        font-size: 14px;
-        text-align: justify;
-        padding: 15px 5px 5px 5px;
-    }
-
-    .trino_image {
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    .trino_image img {
-        max-width: 100%;
-        margin: 5px auto;
-    }
-
-    .boxTrinar {
-        background-color: #F5F8FA;
-        padding: 20px;
-        border-radius: 16px;
+        font-size: 18px;
     }
 
     .input-trino {
-        border: none;
-        width: 100%;
-        resize: none;
         font-size: 18px;
-        line-height: 24px;
-        margin-bottom: 10px;
-        padding: 12px 16px;
-        border-radius: 16px;
-        background-color: #FFFFFF;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .btn-trinar {
-        background-color: var(--Color-azulMorado);
-        color: #FFFFFF;
-        border: none;
-        border-radius: 9999px;
         font-size: 14px;
-        font-weight: bold;
-        padding: 10px 20px;
+    }
+
+    .trini-img-punto-btn {
+        float: right;
+        margin-top: 9px;
+        margin-right: -10px;
+        width: 2rem;
         cursor: pointer;
-        transition: background-color 0.2s ease-in-out;
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    .likeTrino {
+        font-size: 20px;
+    }
+
+    .fa-upload {
+        font-size: 2rem;
+        margin-left: 20px;
+    }
+
+    .headerProfile {
+        position: relative;
+        padding-bottom: 5px;
+        grid-area: header;
+        background: linear-gradient(to bottom, var(--Color-azulMorado) 40%, var(--Color-BlancoMenta) 35%);
+        border-radius: 16px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        margin-left: 18px;
+        margin-right: 35px;
+        margin-top: 10px;
+    }
+
+    .editeProfile-btn {
+        right: -4px;
+        padding: 8px 15px;
+    }
+
+    .editeProfile-btn i {
+        font-size: 10px;
+    }
+
+    .allForms {
+        background-color: var(--Color-gris);
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        height: 100vh;
+    }
+
+    .submitBtn {
+        padding: 10px 20px;
+        background-color: var(--Color-azulMorado);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .logo_trini {
+        height: 120px;
+        margin-bottom: 100px;
+    }
+
+    .formEditProfile {
+        padding: 100px;
+        height: 60vh;
+    }
+
+    .label {
+        margin-bottom: 10px;
+        align-items: left;
+    }
+
+    .input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 250px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        border: 1px solid #888;
+        border-radius: 5px;
+        width: 300px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .modal-content p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: var(--Color-purpleBlue);
+    }
+
+    .modal-buttons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .modal-buttons button {
+        background-color: var(--Color-azulMorado);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .modalBtn-Si {
+        text-align: center;
+        margin-right: 10px;
+        width: 2.7rem;
+    }
+
+    .modalBtn-No {
+        text-align: center;
+        width: 2.7rem;
+        margin-left: 10px;
     }
 }
 
@@ -561,14 +762,16 @@ input[type="file"] {
 /*vista de escritorio*/
 @media (min-width: 900px) {
     .grid-container {
+        display: grid;
+        gap: 1px;
         grid-template:
-            "sidebar  main" auto
-            "sidebar  main" auto
-            "sidebar  main" auto /
+            "sidebar header" auto
+            "sidebar main" 100%
+            "sidebar main" 220px / 230px auto;
     }
 
     header h1 {
-        font-family: inter;
+        font-family: 'Roboto', sans-serif;
         color: var(--Color-azulMorado);
         text-align: center;
         font-size: 2rem;
@@ -592,25 +795,21 @@ input[type="file"] {
         height: 100px;
     }
 
-    .login_btn a {
-        text-decoration: none;
-        color: white;
-    }
-
     .login_btn {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 30px;
         width: 110px;
-        margin: 10px;
+        margin: 11px;
         padding-top: 5px;
         padding-bottom: 5px;
         border: none;
         background-color: var(--Color-azulMorado);
         border-radius: 6px;
         cursor: pointer;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
         font-size: 12px;
         text-decoration: none;
         color: white;
@@ -638,7 +837,7 @@ input[type="file"] {
         background-color: var(--Color-azulMorado);
         border-radius: 6px;
         cursor: pointer;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 12px;
     }
 
@@ -663,39 +862,15 @@ input[type="file"] {
     .footer {
         margin-bottom: 5px;
     }
+
     .header {
-        display: flex;
-        position: fixed;
-        width: 100vw;
-        justify-content: center;
-        align-items: center;
-        grid-area: header;
-        background-color: white;
-        padding-bottom: 5px;
-        padding-left: 200px;
-        top: 0;
+        padding: 15px 0 15px 0;
     }
 
     .sidebar {
-        display: flex;
-        flex-wrap: wrap;
-        place-content: space-between center;
-        height: 100vh;
-        position: fixed;
         width: 230px;
-        grid-area: sidebar;
-        background-color: white;
-        top: 0;
-        z-index: 5px;
     }
 
-    .main {
-        width: 100%;
-        grid-area: main;
-        background-color: #f5f5f5;
-        overflow-y: scroll;
-        margin-top: 40px;
-    }
     .mainPofile {
         width: 100%;
         grid-area: main;
@@ -704,13 +879,7 @@ input[type="file"] {
         margin-top: 40px;
     }
 
-    .profile_picture {
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        padding: 7px 8px 5px 5px;
-        border: 2px solid var(--Color-azulMorado);
-    }
+
     .profile_pictureUser {
         height: 100px;
         width: 100px;
@@ -718,13 +887,10 @@ input[type="file"] {
         padding: 7px 8px 5px 5px;
         border: 2px solid var(--Color-azulMorado);
     }
+
     .profile_pictureUserLogged {
         height: 150px;
         width: 150px;
-        border-radius: 50%;
-        padding: 7px 8px 5px 5px;
-        border: 8px solid var(--Color-BlancoMenta);
-        margin-top: 20px;
     }
 
     .userTrini {
@@ -739,22 +905,18 @@ input[type="file"] {
 
     h2 {
         font-size: 16px;
-        color: var(--Color-Bluegrey);
     }
 
     h3 {
         font-size: 14px;
-        color: var(--Color-gris);
+    }
+
+    .trini-detais-info p {
+        font-size: 1rem;
     }
 
     .trini-handler {
         font-size: 10px;
-    }
-
-    .trino_phrase {
-        font-size: 14px;
-        text-align: justify;
-        padding: 15px 5px 5px 5px;
     }
 
     .trino_image img {
@@ -767,6 +929,16 @@ input[type="file"] {
         margin-left: auto;
         margin-right: auto;
         cursor: pointer;
+    }
+
+    .editeProfile-btn {
+
+        right: 10px;
+        padding: 8px 16px;
+    }
+
+    .editeProfile-btn i {
+        font-size: 10px;
     }
 
     /*CSS DEL FORMULARIO*/
@@ -801,15 +973,6 @@ input[type="file"] {
         align-items: left;
     }
 
-    .input {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 250px;
-        margin-bottom: 20px;
-        transition: all 0.3s ease;
-    }
-
     .input:hover,
     .input:focus {
         border-color: #555;
@@ -831,145 +994,42 @@ input[type="file"] {
 
     .logo_trini {
         height: 150px;
-        margin-bottom: 100px;
-    }
-
-    .boxTrinar {
-        background-color: var(--Color-BlancoMenta);
-        padding: 20px;
-        border-radius: 16px;
-        margin-left: 19px;
-        margin-right: 19px;
-        margin-top: 0;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .input-trino {
-        border: none;
-        width: 100%;
-        resize: none;
         font-size: 1em;
-        line-height: 24px;
-        margin-bottom: 10px;
-        padding: 12px 16px;
-        border-radius: 16px;
-        background-color: #FFFFFF;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .btn-trinar {
-        background-color: var(--Color-azulMorado);
-        color: #FFFFFF;
-        border: none;
         border-radius: 10px;
         font-size: 16px;
-        font-weight: bold;
-        padding: 10px 20px;
-        cursor: pointer;
-        transition: background-color 0.2s ease-in-out;
     }
 
     .btn-trinar:hover {
         background-color: var(--Color-azulTwitter);
     }
 
-    .trini-img-punto {
-        float: right;
-        margin-top: -10px;
-        margin-right: 1px;
-        width: 2rem;
-        cursor: pointer;
-    }
-    .trini-img-punto-btn {
-        height: 0.5;
-        float: right;
-        margin-top: 50px;
-        margin-right: 15px;
-        width: 2rem;
-        cursor: pointer;
-        border: none;
-        background-color: rgba(255, 255, 255, 0);
-    }
 
     /*CSS PARA EL MODAL*/
 
-    .modal {
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.4);
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-      }
-      
-      .modal-content {
-        background-color: #fefefe;
-        border: 1px solid #888;
-        border-radius: 5px;
-        width: 300px;
-        height: 150px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-      }
-      
-      .modal-content p {
-        font-size: 18px;
-        margin-bottom: 20px;
-        color: var(--Color-purpleBlue);
-      }
-      
-      .modal-buttons {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-      }
+    .formEditProfile {
+        height: 70vh;
 
-      .modalBtn-Si {
-        text-align: center;
-        margin-right: 10px;
-        width: 2.7rem;
-      }
+    }
 
-      .modalBtn-Si:hover {
+    .modalBtn-Si:hover {
         background-color: var(--Color-azulTwitter);
         color: white;
-      }
+    }
 
-      .modalBtn-No {
-        text-align: center;
-        width: 2.7rem;
-        margin-left: 10px;
-      }
-      .modalBtn-No:hover {
+    .modalBtn-No:hover {
         background-color: var(--Color-azulTwitter);
         color: white;
-      }
-      
-      
-      .modal-buttons button {
-        background-color: var(--Color-azulMorado);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 10px;
-        cursor: pointer;
-      }
-      
-      .modal-buttons button:hover {
+    }
+
+    .modal-buttons button:hover {
         opacity: 0.8;
-      }
-      
-      .trini-img-punto {
-        width: 24px;
-        height: 24px;
     }
 
 
@@ -981,12 +1041,6 @@ input[type="file"] {
         font-size: 20px;
     }
 
-
-
-
-
-
-
     /*CSS DEL LIKE*/
 
     .product__footer {
@@ -994,10 +1048,12 @@ input[type="file"] {
         display: flex;
         justify-content: space-between;
         padding: 1em 1.5em;
+
     }
 
     .product__like {
         font-family: 'products';
+
     }
 
     .product__like .icon-heart-empty {
@@ -1025,19 +1081,16 @@ input[type="file"] {
         padding: 1em;
         width: 100%;
     }
-    .likeTrino{
+
+    .likeTrino {
         display: contents;
         position: relative;
-        align-content: center;
-        width: 20px;
-
-    }
-    .icon-heart {
-        color: var(--Color-purpleBlue);
+        font-size: 25px;
     }
 
     .fa fa-heart {
         color: gray;
+
     }
 
 }
