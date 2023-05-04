@@ -6,8 +6,7 @@ function useServer() {
   const { token, setUser } = useAuth()
 
   const handleResponse = ({ data, loading, error, url }) => {
-    console.log({ usr: data.data })
-
+    
     if (data?.status === 'ok' && url === '/login') {
       setUser({token: data.data})
     }

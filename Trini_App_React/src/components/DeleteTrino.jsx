@@ -1,11 +1,10 @@
 import useServer from '../hooks/useServer.js'
-import useAuth from '../hooks/useAuth.js'
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 function DeleteTrino({trino, handleDeleteTrino}) {
 
     const { delete: destroy } = useServer()
-    const { isAuthenticated } = useAuth()
     const [showModal, setShowModal] = useState(false);
 
     const handleSubmit = async e => {
@@ -13,6 +12,7 @@ function DeleteTrino({trino, handleDeleteTrino}) {
         
         const { data } = await destroy({ url: '/tweet/' + trino.id})
         handleDeleteTrino()
+        if (data.status === 'ok') toast.success('El Trino ha sido eliminado satisfactoriamente')
     }
 
     const handleDeleteClick = e => {

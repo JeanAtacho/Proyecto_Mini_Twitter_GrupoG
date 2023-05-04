@@ -1,9 +1,9 @@
-import { toast } from 'sonner';
 import useAuth from '../hooks/useAuth.js';
 import useServer from '../hooks/useServer.js'
 import { useEffect, useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 
-function EditProfile({}) {
+function EditProfile({handleEditClick}) {
     const { user } = useAuth()
     const { put } = useServer()
     const [showModal, setShowModal] = useState(false);
@@ -12,35 +12,16 @@ function EditProfile({}) {
     const [password, setPassword] = useState('')
     const [file, setFile] = useState('')
     const fileRef = useRef()
-
-    /*const handleSubmit = async e => {
-        e.preventDefault()
-
-        const credentials = new FormData(e.target)
-        if(credentials.name && credentials.email){
-            const { userData } = await put({ url: '/user/', body: credentials})
-        }
-        if(credentials.password){
-            const { userPass } = await put({ url: '/user/password', body: credentials})
-        }
-        if(credentials.avatar){
-            const formData = new FormData();
-            formData.append('avatar', credentials.avatar);
-            const headers = { 'Content-Type': 'multipart/form-data' };
-            const { userAvatar } = await put({ url: '/user/avatar', body: formData, headers})
-            console.log(userAvatar)
-        }
-        setShowModal(false);
-        handleEditClick()
-    }*/
     
     useEffect(() => {
+        const savedData = getFromLocalStorage('user');
+        if (name === savedData.user.name) return
         const timer = setTimeout(async () => {
             const credentials = { name, email }
             const { data } = await put({ url: '/user/', body: credentials})
-            //if (data.status === 'ok') toast.success('Nombre o Email han sido actualizados')
-
-        }, 2000);
+            handleEditClick();
+            if (data.status === 'ok') toast.success('Nombre o Email han sido actualizados')
+        }, 3000);
         return () => clearTimeout(timer);
     }, [name, email])
 
@@ -50,8 +31,7 @@ function EditProfile({}) {
         const timer = setTimeout(async () => {
             const credentials = { password }
             const { data } = await put({ url: '/user/password', body: credentials})
-            //if (data.status === 'ok') toast.success('Contraseña ha sido actualizada')
-
+            if (data.status === 'ok') toast.success('Contraseña ha sido actualizada')
         }, 2000);
         return () => clearTimeout(timer);
     }, [password])
@@ -62,22 +42,31 @@ function EditProfile({}) {
         (async () => {
             const formData = new FormData(document.forms[0]);
             const { data } = await put({ url: '/user/avatar', body: formData, hasImage: true})
-            //if (data.status === 'ok') toast.success('Contraseña ha sido actualizada')
+            handleEditClick();
+            if (data.status === 'ok') toast.success('Avatar ha sido actualizado')
         })()
     }, [file])
 
-
+    const getFromLocalStorage = (key) => {
+        try {
+          const data = localStorage.getItem(key);
+          return data ? JSON.parse(data) : null;
+        } catch (error) {
+          console.error('Error al leer de localStorage:', error);
+          return null;
+        }
+      };
 
     const handleEditProfile = e => {
         e.preventDefault();
         setShowModal(true);
     };
 
-    const handleModalCancel = e => {
-        e.preventDefault();
-        setShowModal(false);
-    };
-
+    const handleClose = async e => {
+    e.preventDefault()
+    setShowModal(false);
+    handleEditClick()
+    }
 
 
 
@@ -119,6 +108,10 @@ function EditProfile({}) {
                             <div className="inputContainer">
                                 <input type="password" name="password" id="password" value={password} onChange={e => setPassword(e.target.value)} className="input" placeholder="123456" />
                             </div>
+                            <div className="modal-buttons">
+                                <button className='modalBtn-cerrar' onClick={handleClose}>Cerrar</button>
+                            </div>
+                            
                         </form>
                     </div>
                 </div>

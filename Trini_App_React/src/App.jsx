@@ -8,12 +8,15 @@ import Home from './views/Home';
 import { PrivateRoutes } from './components/PrivateRoutes';
 import HomeUser from './views/HomeUser';
 import UserProfile from './views/UserProfile';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
   return (
     <>
       <div className="grid-container">
+      
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/homeUser" element={<HomeUser />} />
@@ -26,6 +29,7 @@ function App() {
             <Route path="/homeUser" />
           </Route>
         </Routes>
+        <ToastContainer />
       </div>
     </>
   );

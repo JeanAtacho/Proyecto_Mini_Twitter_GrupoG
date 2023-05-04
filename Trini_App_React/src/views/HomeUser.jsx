@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 import TimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
+import { toast } from 'react-toastify';
 
 TimeAgo.addDefaultLocale(es)
 const timeAgo = new TimeAgo('es-ES')
@@ -28,12 +29,33 @@ function HomeUser() {
 
     async function createTrino(e) {
         e.preventDefault()
-
         const dataForm = new FormData(e.target)
+        if(!isFormDataEmpty(dataForm)){
         const { data: { data: trino } } = await post({ url: '/', body: dataForm, hasImage: true })
         setTrinos([trino, ...trinos])
         setTrinoText('')
+        if (trino) toast.success('Tu Trino ha sido publicado :)')
+        }
     }
+
+    //Validacion para que detecte si existe un arhivo y/o texto valido para hacer un trino.
+    const isFormDataEmpty = (formData) => {
+        let isEmpty = true;
+      
+        for (let [key, value] of formData.entries()) {
+          if (value instanceof File) {
+            if (value.size > 0) {
+              isEmpty = false;
+              break;
+            }
+          } else if (value && value.toString().trim() !== '') {
+            isEmpty = false;
+            break;
+          }
+        }
+      
+        return isEmpty;
+      };
 
     const handleDeleteTrino = () => {
         fetchTrinos()

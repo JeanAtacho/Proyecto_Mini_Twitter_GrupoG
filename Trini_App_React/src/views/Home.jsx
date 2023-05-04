@@ -7,6 +7,7 @@ import Trino from '../components/Trino.jsx'
 import Header from '../components/Header.jsx'
 import Aside from './aside.jsx'
 
+
 import TimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
 TimeAgo.addDefaultLocale(es)

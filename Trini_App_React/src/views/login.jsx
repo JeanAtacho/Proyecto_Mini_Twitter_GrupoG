@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import useServer from '../hooks/useServer.js'
 import useAuth from '../hooks/useAuth.js'
 import { useEffect } from 'react'
+import { toast } from 'react-toastify';
 
 function Login() {
   const { token } = useAuth()
@@ -12,7 +13,9 @@ function Login() {
     e.preventDefault()
 
     const credentials = Object.fromEntries(new FormData(e.target))
-    await post({ url: '/login', body: credentials })
+    const data = await post({ url: '/login', body: credentials })
+    if (data.data.status === 'ok') toast.success('Inicio de sesión exitoso ;)')
+    if (data.data.status === 'error') toast.error('Usuario o contraseña incorrecto :(')
   }
   
   useEffect(() => {
