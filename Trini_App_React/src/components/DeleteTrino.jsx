@@ -36,7 +36,7 @@ function DeleteTrino({trino, handleDeleteTrino}) {
 
     return <>
         <button type="submit" className="trini-img-punto-btn" onClick={handleDeleteClick} >
-        <img  className="trini-img-punto" src="src/image/puntos.svg" alt="Borrar" />
+        <img  className="trini-img-punto" src="/image/puntos.svg" alt="Borrar" />
         </button>
         {showModal && (
     <div className="modal">

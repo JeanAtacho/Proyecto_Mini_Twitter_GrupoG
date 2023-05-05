@@ -3,7 +3,7 @@ import Creditos from "./creditos"
 function AsideIndex() {
     return <>
             <aside className="sidebar">
-            <img className="logo_view" src="src/image/Logo_Trini_redi.png" />
+            <img className="logo_view" src="/image/Logo_Trini_redi.png" />
     
             <nav className="navBar_btn_home">
                 <div className="login_btn">

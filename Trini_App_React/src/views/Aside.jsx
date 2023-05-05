@@ -7,7 +7,7 @@ function Aside() {
     const { isAuthenticated, logout } = useAuth()
     return <>
         <aside className="sidebar">
-            <img className="logo_view" src="src/image/Logo_Trini_redi.png" />
+            <img className="logo_view" src="/image/Logo_Trini_redi.png"/>
     
             <nav className="navBar_btn_home">
                 <div>
@@ -33,7 +33,7 @@ function Aside() {
             </nav>
     
             <footer className="footer">
-                <img className="navyBird" src="src/image/trini_navy.png" alt="" />
+                <img className="navyBird" src="/image/trini_purple.png" alt="" />
             
                 <h4>@2023 Trini, Inc.</h4>
                     <div className="developedBy">

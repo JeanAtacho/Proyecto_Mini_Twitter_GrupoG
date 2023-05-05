@@ -28,12 +28,11 @@ body {
     overflow: hidden;
 }
 
-    grid-area: header;
 .new-trini-actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 60px;
+    height: 50px;
     width: 100%;
 }
 
@@ -123,7 +122,8 @@ input[type="file"] {
         grid-template:
             "sidebar header" auto
             "sidebar main" 100%
-            "sidebar main" 220px / 100px auto;
+            "sidebar main" 220px / 
+            100px auto;
     }
 
     .profile_pictureUser {
@@ -215,7 +215,7 @@ input[type="file"] {
         height: 20px;
     }
     .footer {
-        margin-bottom: 10px;
+        margin-bottom: 75px;
     }
     .creditsTrini {
         font-size: 5px;
@@ -353,10 +353,11 @@ input[type="file"] {
         color: #FFFFFF;
         border: none;
         border-radius: 99px;
-        font-size: 8px;
+        font-size: 0.7rem;
         font-weight: bold;
         padding: 2px 3px;
         margin-left: 10px;
+        margin-top: 11px;
         cursor: pointer;
         transition: background-color 0.2s ease-in-out;
     }
@@ -374,9 +375,8 @@ input[type="file"] {
 
     .fa-upload {
         color: var(--Color-azulMorado);
-        font-size: .6rem;
-        margin-right: 10px;
-        margin-top:5px;
+        font-size: 1rem;
+        margin-right: 20px;
     }
     #image-upload {
         font-size: 8px;
@@ -667,7 +667,8 @@ input[type="file"] {
     }
 
     .btn-trinar {
-        font-size: 12px;
+        font-size: 1rem;
+        margin-top: 6px;
     }
 
     .trini-img-punto-btn {
@@ -686,7 +687,8 @@ input[type="file"] {
 
     .fa-upload {
         font-size: 1.5rem;
-        margin-left: 20px;
+        margin-right: 70px;
+        top: 0;
     }
 
     .headerProfile {
@@ -1080,7 +1082,8 @@ input[type="file"] {
 
     .btn-trinar {
         border-radius: 10px;
-        font-size: 14px;
+        font-size: 16px;
+        margin-top: 12px;
     }
 
     .btn-trinar:hover {

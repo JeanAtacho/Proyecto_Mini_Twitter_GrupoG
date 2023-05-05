@@ -19,7 +19,7 @@ function Register() {
     return (
         <div main className="allForms">
             <form onSubmit={handleSubmit} className="form">
-                <img className="logo_trini" src="src/image/Logo_Trini_redi.png" alt="Logo_Trini" />
+                <img className="logo_trini" src="/image/Logo_Trini_redi.png" alt="Logo_Trini" />
 
                 <div className="inputContainer">
                     <label htmlFor="name" className="label">Nombre</label>

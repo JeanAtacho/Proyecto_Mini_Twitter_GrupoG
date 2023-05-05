@@ -23,7 +23,7 @@ function Trino({ trino, user, timeAgo, authUser, isAuthenticated, handleDeleteTr
             {user.data && user.data.avatar === null && (<>
                 <img
                 className="profile_pictureUserTrino"
-                src="src/image/trini_purple.png"
+                src="/image/trini_purple.png"
             />
             </>) }
                         <h2>{user.data.name}</h2>

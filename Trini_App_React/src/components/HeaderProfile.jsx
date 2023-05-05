@@ -14,7 +14,7 @@ function HeaderProfile({ user, handleEditClick }) {
             {user.data && user.data.avatar === null && (<>
                 <img
                 className="profile_pictureUserLogged"
-                src="src/image/trini_purple.png"
+                src="/image/trini_purple.png"
             />
             </>) }
             {user && user.data && (
