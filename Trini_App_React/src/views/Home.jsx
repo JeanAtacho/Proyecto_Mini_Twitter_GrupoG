@@ -5,11 +5,12 @@ import useServer from '../hooks/useServer.js'
 
 import Trino from '../components/Trino.jsx'
 import Header from '../components/Header.jsx'
-import Aside from './aside.jsx'
 
+import Aside from './Aside.jsx'
 
 import TimeAgo from 'javascript-time-ago'
 import es from 'javascript-time-ago/locale/es'
+
 TimeAgo.addDefaultLocale(es)
 const timeAgo = new TimeAgo('es-ES')
 
@@ -64,7 +65,7 @@ function Home() {
                 const user = users[trino.user_id]
                 if (user) {
                     return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={null}
-                    isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino}/>
+                        isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino} />
                 } else {
                     return null
                 }

@@ -1,7 +1,7 @@
-import {Link} from 'react-router-dom'
-import Creditos from '../components/creditos'
-
+import { Link } from 'react-router-dom'
 import useAuth from '../hooks/useAuth'
+
+import Creditos from '../components/creditos'
 
 function Aside() {
     const { isAuthenticated, logout } = useAuth()
@@ -13,17 +13,15 @@ function Aside() {
         logout();
     };
 
-
-
     return <>
         <aside className="sidebar">
-            <img className="logo_view" src="/image/Logo_Trini_redi.png"/>
-    
+            <img className="logo_view" src="/image/Logo_Trini_redi.png" />
+
             <nav className="navBar_btn_home">
                 <div>
                     {!isAuthenticated && <Link to="./login" className="login_btn">Iniciar Sesión</Link>}
                 </div>
-                
+
                 <div>
                     {!isAuthenticated && <Link to="./register" className="login_btn">Registrar Usuario</Link>}
                 </div>
@@ -41,17 +39,17 @@ function Aside() {
                 </div>
 
             </nav>
-    
+
             <footer className="footer">
                 <img className="navyBird" src="/image/trini_purple.png" alt="" />
-            
+
                 <h4>@2023 Trini, Inc.</h4>
-                    <div className="developedBy">
-                        <Creditos />
-                    </div>
+                <div className="developedBy">
+                    <Creditos />
+                </div>
             </footer>
         </aside>
-    </>    
+    </>
 }
 
 export default Aside
