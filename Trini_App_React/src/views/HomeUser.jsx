@@ -18,7 +18,7 @@ function HomeUser() {
     const [users, setUsers] = useState({})
     const [unmounted, setUnmounted] = useState(false)
     const { isAuthenticated, token } = useAuth()
-    const [authUser, setAuthUser] = useState({})
+    const [user, setUser] = useState({})
     const navigate = useNavigate()
     const [trinoText, setTrinoText] = useState('')
     const [file, setFile] = useState(null);
@@ -86,7 +86,7 @@ function HomeUser() {
     }
     async function fetchSingleUser() {
         const userData = await get({ url: '/user/', token: token })
-        setAuthUser(userData.data)
+        setUser(userData.data)
     }
     async function fetchUserTrino(user_id) {
         try {
@@ -127,9 +127,9 @@ function HomeUser() {
                 </form>
             </section>
             {trinos && trinos.map(trino => {
-                const user = users[trino.user_id]
-                if (user) {
-                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={authUser} isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino} likeTrinoHandler={likeTrinoHandler} />
+                const userTrino = users[trino.user_id]
+                if (userTrino) {
+                    return <Trino key={trino.id} trino={trino} user={userTrino} timeAgo={timeAgo} authUser={user} isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino} likeTrinoHandler={likeTrinoHandler} />
                 } else {
                     return null
                 }

@@ -5,6 +5,16 @@ import useAuth from '../hooks/useAuth'
 
 function Aside() {
     const { isAuthenticated, logout } = useAuth()
+
+    const handleLogout = () => {
+        // Borrar todos los datos almacenados en localStorage
+        localStorage.clear();
+        // Llamar a la función logout para cerrar la sesión en la aplicación
+        logout();
+    };
+
+
+
     return <>
         <aside className="sidebar">
             <img className="logo_view" src="/image/Logo_Trini_redi.png"/>
@@ -27,7 +37,7 @@ function Aside() {
                 </div>
 
                 <div>
-                    {isAuthenticated && <Link to="/#" className="login_btn" onClick={logout}>Cerrar sesión</Link>}
+                    {isAuthenticated && <Link to="/#" className="login_btn" onClick={handleLogout}>Cerrar sesión</Link>}
                 </div>
 
             </nav>

@@ -10,8 +10,14 @@ function useServer() {
     if (data?.status === 'ok' && url === '/login') {
       setUser({token: data.data})
     }
-
-    if (data?.data?.email) {
+    //se agrego una validacion para que cuando se trae la informacion de los usuarios
+    //de cada trino no actualice al usuario actual de la aplicacion
+    //porque cada vez que se ejecuta un get se llama al handleResponse
+    //como se usa una peticion para consultar la data de cada usuario por trino
+    //y esta peticion tiene un correo, entonces detectaba que tenia un correo y actualizaba
+    //al usuario actual, muchas veces, por cada peticion de usuario que tenia un trino.
+    const pattern = /^\/user\/[^/]+/;
+    if (data?.data?.email  && !pattern.test(url)) {
       setUser({ user: data.data })
     }
 
