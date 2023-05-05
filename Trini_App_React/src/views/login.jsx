@@ -17,7 +17,7 @@ function Login() {
     if (data.data.status === 'ok') toast.success('Inicio de sesión exitoso ;)')
     if (data.data.status === 'error') toast.error('Usuario o contraseña incorrecto :(')
   }
-
+  
   useEffect(() => {
     if (!token) return
 
@@ -29,26 +29,26 @@ function Login() {
   }, [token])
 
   return (
-    <div main className="allForms">
-      <form onSubmit={handleSubmit} className="form">
-        <img className="logo_trini" src="src/image/Logo_Trini_redi.png" alt="Logo_Trini" />
+      <div main className="allForms">
+        <form onSubmit={handleSubmit} className="form">
+            <img className="logo_trini" src="src/image/Logo_Trini_redi.png" alt="Logo_Trini" />
 
-        <div className="inputContainer">
-          <label htmlFor="email" className="label">Correo</label>
-        </div>
-        <div className="inputContainer">
-          <input type="email" name="email" id="email" className="input" placeholder="juan@example.com" required />
-        </div>
+            <div className="inputContainer">
+            <label htmlFor="email" className="label">Correo</label>
+            </div>
+            <div className="inputContainer">
+                <input type="email" name="email" id="email" className="input" placeholder="juan@example.com" required />
+            </div>
 
-        <div className="inputContainer">
-          <label htmlFor="password" className="label">Contraseña</label>
-        </div>
-        <div className="inputContainer">
-          <input type="password" name="password" id="password" className="input" placeholder="123456" required />
-        </div>
+            <div className="inputContainer">
+            <label htmlFor="password" className="label">Contraseña</label>
+            </div>
+            <div className="inputContainer">
+                <input type="password" name="password" id="password" className="input" placeholder="123456" required />
+            </div>
 
-        <input type="submit" className="submitBtn" value="Iniciar Sesion" />
-      </form>
+            <input type="submit" className="submitBtn" value="Iniciar Sesion" />
+        </form>
     </div>
   )
 }
