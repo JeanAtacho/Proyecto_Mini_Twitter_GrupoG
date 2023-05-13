@@ -24,13 +24,10 @@ function UserOtherProfile() {
     const navigate = useNavigate()
     const { data } = useContext(DataContext);
 
-
     const likeTrinoHandler = async (id) => {
         const response = await post({ url: `/tweet/${id}/like` })
         fetchSingleUser(true)
     }
-
-    
 
     async function fetchSingleUser(isUpdated) {
         const otherUserData = await get({ url: `/user/${data.user_id}` })
@@ -73,7 +70,7 @@ function UserOtherProfile() {
 
             {trinos && trinos.map(trino => {
                 if (otherUser) {
-                    return <Trino key={trino.id} trino={trino} user={otherUser} timeAgo={timeAgo} authUser={user} isAuthenticated={isAuthenticated} likeTrinoHandler={likeTrinoHandler} showUserProfile={false}/>
+                    return <Trino key={trino.id} trino={trino} user={otherUser} timeAgo={timeAgo} authUser={user} isAuthenticated={isAuthenticated} likeTrinoHandler={likeTrinoHandler} showUserProfile={false} />
                 } else {
                     return null
                 }

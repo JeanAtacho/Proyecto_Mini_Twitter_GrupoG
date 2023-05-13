@@ -27,9 +27,9 @@ function Trino({ trino, user, timeAgo, authUser, isAuthenticated, handleDeleteTr
                         {/* Aqui se debe aplicar la logica que permita que aparezca "ver perfil" en otros perfiles, solo si el user esta loggeado */}
                         {isAuthenticated && showUserProfile && authUser.id != user.data.id && (
                             <>
-                            <ViewProfile user_id={user.data.id}/>
+                                <ViewProfile user_id={user.data.id} />
                             </>
-                            )
+                        )
                         }
                         <h2>{user.data.name}</h2>
                         <h3>{trino.email}</h3>

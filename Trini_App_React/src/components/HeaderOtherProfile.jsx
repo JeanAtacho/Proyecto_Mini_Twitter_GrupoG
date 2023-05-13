@@ -2,7 +2,7 @@ import { apiURL } from "../config"
 
 function HeaderOtherProfile({ user }) {
     return (<>
-       <header className="headerProfile">
+        <header className="headerProfile">
             {user.data && user.data.avatar != null && (<>
                 <img
                     className="profile_pictureUserLogged"

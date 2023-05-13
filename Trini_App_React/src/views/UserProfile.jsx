@@ -20,9 +20,9 @@ const timeAgo = new TimeAgo('es-ES')
 function UserProfile() {
     const { get, post } = useServer()
     const [trinos, setTrinos] = useState([])
-    const [user, setAuthUser] = useState({})
+    const [userProfile, setUserProfile] = useState({})
     const [unmounted, setUnmounted] = useState(false)
-    const { isAuthenticated, token } = useAuth()
+    const { isAuthenticated, token, user } = useAuth()
     const navigate = useNavigate()
     const [trinoText, setTrinoText] = useState('')
     const [file, setFile] = useState(null);
@@ -77,7 +77,7 @@ function UserProfile() {
 
     async function fetchSingleUser(isUpdated) {
         const userData = await get({ url: '/user/', token: token })
-        setAuthUser(userData.data)
+        setUserProfile(userData.data)
         if (userData.data) {
             fetchUserTrinos(userData.data.data.id, isUpdated)
         }
@@ -116,7 +116,7 @@ function UserProfile() {
 
 
     return <>
-        <HeaderProfile user={user} handleEditClick={handleEditClick} />
+        <HeaderProfile user={userProfile} handleEditClick={handleEditClick} />
         <Aside />
 
         <main className="mainUserProfile">
@@ -136,7 +136,7 @@ function UserProfile() {
             </section>
             {trinos && trinos.map(trino => {
                 if (user) {
-                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={user} isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino} likeTrinoHandler={likeTrinoHandler} showUserProfile={false}/>
+                    return <Trino key={trino.id} trino={trino} user={userProfile} timeAgo={timeAgo} authUser={userProfile.data} isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino} likeTrinoHandler={likeTrinoHandler} showUserProfile={false} />
                 } else {
                     return null
                 }

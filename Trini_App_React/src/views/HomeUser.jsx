@@ -25,7 +25,7 @@ function HomeUser() {
     const [trinoText, setTrinoText] = useState('')
     const [file, setFile] = useState(null);
     const fileRef = useRef();
-    
+
 
     const likeTrinoHandler = async (id) => {
         const response = await post({ url: `/tweet/${id}/like` })
@@ -128,7 +128,7 @@ function HomeUser() {
             {trinos && trinos.map(trino => {
                 const userTrino = users[trino.user_id]
                 if (userTrino) {
-                    return <Trino key={trino.id} trino={trino} user={userTrino} timeAgo={timeAgo} authUser={user} isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino} likeTrinoHandler={likeTrinoHandler} showUserProfile={true}/>
+                    return <Trino key={trino.id} trino={trino} user={userTrino} timeAgo={timeAgo} authUser={user} isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino} likeTrinoHandler={likeTrinoHandler} showUserProfile={true} />
                 } else {
                     return null
                 }

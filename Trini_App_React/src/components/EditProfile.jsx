@@ -72,8 +72,6 @@ function EditProfile({ handleEditClick }) {
         setShowModal(false);
     }
 
-
-
     return <>
         <button type="submit" className="editeProfile-btn" onClick={handleEditProfile} >
             <i className="fa-solid fa-user-pen">Editar Perfil</i>
@@ -113,6 +111,7 @@ function EditProfile({ handleEditClick }) {
                                 <div className="inputContainer">
                                     <input type="password" name="password" id="password" value={password} onChange={e => setPassword(e.target.value)} className="input" placeholder="123456" />
                                 </div> */}
+                                
                             <div className="modal-buttons">
                                 <button className='modalBtn-cerrar' onClick={handleClose}>Cerrar</button>
                             </div>

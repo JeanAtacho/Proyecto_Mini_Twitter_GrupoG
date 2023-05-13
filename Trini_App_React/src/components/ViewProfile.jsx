@@ -4,7 +4,7 @@ import { DataContext } from '../contexts/DataContext'
 
 function ViewProfile(user_id) {
 
-    const {setData } = useContext(DataContext);
+    const { setData } = useContext(DataContext);
     const navigate = useNavigate();
 
     const viewProfileButtomHandler = () => {
@@ -13,7 +13,7 @@ function ViewProfile(user_id) {
     }
     return <>
         <div className="verPerfil">
-            <button onClick={viewProfileButtomHandler}><h6>Ver Perfil</h6></button>
+            <button className="verPerfilBtn" onClick={viewProfileButtomHandler}><h6>Ver Perfil</h6></button>
         </div>
     </>
 }

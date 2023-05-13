@@ -8,6 +8,9 @@ const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(localUser)
 
   const setUserHandler = useCallback((user = {}) => {
+    
+    if ('user' in user && 'text' in user.user)  return
+
     if (isEmpty(user)) return
 
     const newUser = {
