@@ -1,9 +1,9 @@
 import { apiURL } from "../config"
 import DeleteTrino from "./DeleteTrino"
+import ViewProfile from "./ViewProfile";
 
 
-function Trino({ trino, user, timeAgo, authUser, isAuthenticated, handleDeleteTrino, likeTrinoHandler }) {
-
+function Trino({ trino, user, timeAgo, authUser, isAuthenticated, handleDeleteTrino, likeTrinoHandler, showUserProfile}) {
 
     const likeButtonHandler = () => {
         likeTrinoHandler(trino.id);
@@ -23,9 +23,15 @@ function Trino({ trino, user, timeAgo, authUser, isAuthenticated, handleDeleteTr
                         {user.data && user.data.avatar === null && (<>
                             <img
                                 className="profile_pictureUserTrino"
-                                src="/image/trini_purple.png"
-                            />
+                                src="/image/trini_purple.png" />
                         </>)}
+                        {/* Aqui se debe aplicar la logica que permita que aparezca "ver perfil" en otros perfiles, solo si el user esta loggeado */}
+                        {isAuthenticated && showUserProfile && (
+                            <>
+                            <ViewProfile user_id={user.data.id}/>
+                            </>
+                            )
+                        }
                         <h2>{user.data.name}</h2>
                         <h3>{trino.email}</h3>
 
@@ -33,7 +39,7 @@ function Trino({ trino, user, timeAgo, authUser, isAuthenticated, handleDeleteTr
                     </div>
 
                     {/*Aqui podemos reservar la accion de eliminar un trino, solo si el usuario ha iniciado sesion*/}
-                    {isAuthenticated && user.data.id === authUser.data.id && (
+                    {isAuthenticated && user.data.id === authUser.id && (
                         <>
                             <DeleteTrino trino={trino} handleDeleteTrino={handleDeleteTrino} />
                         </>

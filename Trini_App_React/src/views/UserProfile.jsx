@@ -119,7 +119,7 @@ function UserProfile() {
         <HeaderProfile user={user} handleEditClick={handleEditClick} />
         <Aside />
 
-        <main className="main">
+        <main className="mainUserProfile">
             <section className="boxTrinar">
                 <form onSubmit={createTrino}>
                     <textarea name="text" className="input-trino" placeholder="Escribe tu trino aquí..." value={trinoText} onChange={(e) => setTrinoText(e.target.value)}></textarea>
@@ -136,7 +136,7 @@ function UserProfile() {
             </section>
             {trinos && trinos.map(trino => {
                 if (user) {
-                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={user} isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino} likeTrinoHandler={likeTrinoHandler} />
+                    return <Trino key={trino.id} trino={trino} user={user} timeAgo={timeAgo} authUser={user} isAuthenticated={isAuthenticated} handleDeleteTrino={handleDeleteTrino} likeTrinoHandler={likeTrinoHandler} showUserProfile={false}/>
                 } else {
                     return null
                 }

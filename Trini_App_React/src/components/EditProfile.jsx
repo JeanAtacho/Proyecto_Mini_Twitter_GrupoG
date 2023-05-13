@@ -27,7 +27,7 @@ function EditProfile({ handleEditClick }) {
     }, [name, email])
 
     /*
-    funcion para el password pero por el error del servio no se va a implementar
+    funcion para el password pero por el error del servicio no se va a implementar
     useEffect(() => {
         if (!password) return
 

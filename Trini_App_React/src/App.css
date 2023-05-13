@@ -41,7 +41,8 @@ body {
     grid-area: main;
     background-color: #f5f5f5;
     overflow-y: scroll;
-    max-height: 100vh;
+    max-height: 89vh;
+    padding-bottom: 20px;
 }
 
 .trinos_posted {
@@ -109,6 +110,32 @@ input[type="file"] {
     justify-content: center;
     align-items: center;
 
+}
+
+h6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: var(--Color-azulTwitter);
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.5rem;
+    color: white;
+    width: 40px;
+}
+
+a {
+    text-decoration: none;
+    align-content: center;
+}
+
+.verPerfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
 }
 
 /*a partir de aca, se realiza la estructuracion del layout grid responsive para movil, tablet y pc*/
@@ -210,7 +237,23 @@ input[type="file"] {
         font-size: 7px;
         color: var(--Color-azulMorado);
     }
-
+    .mainUserProfile {
+        width: 100%;
+        grid-area: main;
+        background-color: #f5f5f5;
+        overflow-y: scroll;
+        height: 72vh;
+        padding-bottom: 10px;
+        margin-top: 3px;
+    }
+    .mainHomeUser {
+        width: 100%;
+        grid-area: main;
+        background-color: #f5f5f5;
+        overflow-y: scroll;
+        max-height: 94vh;
+        padding-bottom: 20px;
+    }
     .navyBird {
         height: 20px;
     }
@@ -324,7 +367,6 @@ input[type="file"] {
         text-align: justify;
         padding: 15px 5px 5px 5px;
     }
-
     .boxTrinar {
         background-color: var(--Color-BlancoMenta);
         padding: 20px 20px 0 20px;
@@ -389,19 +431,22 @@ input[type="file"] {
         padding-bottom: 5px;
         grid-area: header;
         background: linear-gradient(to bottom, var(--Color-azulMorado) 40%, var(--Color-BlancoMenta) 35%);
+        padding: 20px 20px 0 20px;
+        border-radius: 16px;
+        margin-left: 19px;
+        margin-right: 19px;
+        margin-top: 15px;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        margin-top: 10px;
     }
 
     .editeProfile-btn {
         position: fixed;
-        right: -40px;
-        margin-right: 10px;
-        padding-bottom: 3px;
-        padding-left: 7px;
-        top: 15px;
+        right: -3px;
+        margin-right: 18px;
+        padding-left: 7.5px;
+        top: 22px;
         height: 20px;
-        width: 70px;
+        width: 60px;
         transform: translate(-50%, 50%);
         z-index: 1;
         background-color: var(--Color-purpleBlue);
@@ -618,7 +663,23 @@ input[type="file"] {
     .navyBird {
         height: 30px;
     }
-
+    .mainHomeUser {
+        width: 100%;
+        grid-area: main;
+        background-color: #f5f5f5;
+        overflow-y: scroll;
+        max-height: 100vh;
+        padding-bottom: 20px;
+    }
+    .mainUserProfile{
+        width: 100%;
+        grid-area: main;
+        background-color: #f5f5f5;
+        overflow-y: scroll;
+        height: 65vh;
+        padding-bottom: 10px;
+        margin-top: 3px;
+    }
     .sidebar {
         width: 170px;
     }
@@ -944,9 +1005,27 @@ input[type="file"] {
         grid-area: main;
         background-color: #f5f5f5;
         overflow-y: scroll;
-        margin-top: 40px;
+        margin-top: 5px;
+        height: 61vh;
+        padding-bottom: 10px;
     }
-
+    .mainHomeUser {
+        width: 100%;
+        grid-area: main;
+        background-color: #f5f5f5;
+        overflow-y: scroll;
+        max-height: 100vh;
+        padding-bottom: 20px;
+    }
+    .mainUserProfile{
+        width: 100%;
+        grid-area: main;
+        background-color: #f5f5f5;
+        overflow-y: scroll;
+        height: 58.5vh;
+        padding-bottom: 10px;
+        margin-top: 3px;
+    }
 
     .profile_pictureUser {
         height: 100px;
