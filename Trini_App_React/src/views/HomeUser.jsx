@@ -20,12 +20,12 @@ function HomeUser() {
     const [trinos, setTrinos] = useState([])
     const [users, setUsers] = useState({})
     const [unmounted, setUnmounted] = useState(false)
-    const { isAuthenticated, token } = useAuth()
-    const [user, setUser] = useState({})
+    const { isAuthenticated, token, user } = useAuth()
     const navigate = useNavigate()
     const [trinoText, setTrinoText] = useState('')
     const [file, setFile] = useState(null);
     const fileRef = useRef();
+    
 
     const likeTrinoHandler = async (id) => {
         const response = await post({ url: `/tweet/${id}/like` })
@@ -87,10 +87,7 @@ function HomeUser() {
             }
         })
     }
-    async function fetchSingleUser() {
-        const userData = await get({ url: '/user/', token: token })
-        setUser(userData.data)
-    }
+
     async function fetchUserTrino(user_id) {
         try {
             const userData = await get({ url: '/user/' + user_id })
@@ -109,7 +106,6 @@ function HomeUser() {
     useEffect(() => {
         if (isAuthenticated === false) return navigate('/')
         fetchTrinos()
-        fetchSingleUser()
     }, [])
 
     return <>

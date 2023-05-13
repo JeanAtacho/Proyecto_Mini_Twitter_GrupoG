@@ -69,7 +69,7 @@ function UserOtherProfile() {
         <HeaderOtherProfile user={otherUser} />
         <Aside />
 
-        <main className="mainPofile">
+        <main className="mainOtherPofile">
 
             {trinos && trinos.map(trino => {
                 if (otherUser) {

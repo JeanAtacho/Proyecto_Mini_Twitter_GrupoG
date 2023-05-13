@@ -1,9 +1,8 @@
 import { apiURL } from "../config"
 import DeleteTrino from "./DeleteTrino"
-import ViewProfile from "./ViewProfile";
+import ViewProfile from "./ViewProfile"
 
-
-function Trino({ trino, user, timeAgo, authUser, isAuthenticated, handleDeleteTrino, likeTrinoHandler, showUserProfile}) {
+function Trino({ trino, user, timeAgo, authUser, isAuthenticated, handleDeleteTrino, likeTrinoHandler, showUserProfile }) {
 
     const likeButtonHandler = () => {
         likeTrinoHandler(trino.id);
@@ -26,7 +25,7 @@ function Trino({ trino, user, timeAgo, authUser, isAuthenticated, handleDeleteTr
                                 src="/image/trini_purple.png" />
                         </>)}
                         {/* Aqui se debe aplicar la logica que permita que aparezca "ver perfil" en otros perfiles, solo si el user esta loggeado */}
-                        {isAuthenticated && showUserProfile && (
+                        {isAuthenticated && showUserProfile && authUser.id != user.data.id && (
                             <>
                             <ViewProfile user_id={user.data.id}/>
                             </>

@@ -246,6 +246,15 @@ a {
         padding-bottom: 10px;
         margin-top: 3px;
     }
+    .mainOtherPofile {
+        width: 100%;
+        grid-area: main;
+        background-color: #f5f5f5;
+        overflow-y: scroll;
+        margin-top: 5px;
+        height: 62vh;
+        padding-bottom: 10px;
+    }
     .mainHomeUser {
         width: 100%;
         grid-area: main;
@@ -680,6 +689,15 @@ a {
         padding-bottom: 10px;
         margin-top: 3px;
     }
+    .mainOtherPofile {
+        width: 100%;
+        grid-area: main;
+        background-color: #f5f5f5;
+        overflow-y: scroll;
+        margin-top: 5px;
+        height: 64vh;
+        padding-bottom: 10px;
+    }
     .sidebar {
         width: 170px;
     }
@@ -1007,6 +1025,15 @@ a {
         overflow-y: scroll;
         margin-top: 5px;
         height: 61vh;
+        padding-bottom: 10px;
+    }
+    .mainOtherPofile {
+        width: 100%;
+        grid-area: main;
+        background-color: #f5f5f5;
+        overflow-y: scroll;
+        margin-top: 5px;
+        height: 58vh;
         padding-bottom: 10px;
     }
     .mainHomeUser {
